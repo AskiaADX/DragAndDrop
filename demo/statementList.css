@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Statements */
+.statement, 
+.previousStatement,
+.nextStatement
+{   
+    /* Element */
+	display:inline-block;
+	margin:0 0 5px 0;
+    vertical-align:middle;
+	cursor:pointer;
+	behavior:url(PIE.htc);
+	
+	/* Decoration */
+	border: 1px solid #000;
+	background: #fff; 
+	background: -webkit-gradient(linear, 0 0, 0 100%, from( #fff ) to( #cecece )); 
+	background: -webkit-linear-gradient( #fff , #cecece ); 
+	background: -moz-linear-gradient( 	 #fff , #cecece ); 
+	background: -ms-linear-gradient( 	 #fff , #cecece ); 
+	background: -o-linear-gradient( 	 #fff , #cecece ); 
+	background: linear-gradient( 		 #fff , #cecece ); 	
+	-pie-background: linear-gradient(	 #fff , #cecece ); 
+	
+	/* Effects */
+	-webkit-border-radius:	5px 5px 5px 5px; 
+	-moz-border-radius:		5px 5px 5px 5px; 
+	-khtml-border-radius:	5px 5px 5px 5px; 
+	border-radius:			5px 5px 5px 5px; 
+	
+	-webkit-box-shadow: #333 0px 2px 3px;
+	-moz-box-shadow: #333 0px 2px 3px;
+	box-shadow: #333 0px 2px 3px;
+	
+	position:relative;
+}
+.previousStatement span,
+.nextStatement span 
+{
+    text-align:center;
+}
+
+.previousStatement span,
+.nextStatement span,
+.statement_text 
+{ 
+	display:block;
+	padding:10px;
+	font-size:12px;
+	color:#000;
+}
+.statement img {
+	display:inline-block; 
+	margin:5px 20px 5px 5px;
+}
+.statement img.left 
+{
+    float:left;
+}
+.statement img.right 
+{
+    float:right;
+}
+
+/* Reponses */
+.responseItem 
+{   
+    /* Element */
+	display:block;
+	margin:0 0 5px 0;
+    vertical-align:middle;
+	cursor:pointer;
+	behavior:url(PIE.htc);
+	
+	/* Decoration */
+	border: 1px solid #000;
+	background: #fff; 
+	background: -webkit-gradient(linear, 0 0, 0 100%, from( #fff ) to( #cecece )); 
+	background: -webkit-linear-gradient( #fff , #cecece ); 
+	background: -moz-linear-gradient( 	 #fff , #cecece ); 
+	background: -ms-linear-gradient( 	 #fff , #cecece ); 
+	background: -o-linear-gradient( 	 #fff , #cecece ); 
+	background: linear-gradient( 		 #fff , #cecece ); 	
+	-pie-background: linear-gradient(	 #fff , #cecece ); 
+	
+	/* Effects */
+	-webkit-border-radius:	5px 5px 5px 5px; 
+	-moz-border-radius:		5px 5px 5px 5px; 
+	-khtml-border-radius:	5px 5px 5px 5px; 
+	border-radius:			5px 5px 5px 5px; 
+	
+	-webkit-box-shadow: #333 0px 2px 3px;
+	-moz-box-shadow: #333 0px 2px 3px;
+	box-shadow: #333 0px 2px 3px;
+	
+	position:relative;
+}
+
+.response_text 
+{ 
+	display:block;
+	padding:10px;
+	font-size:12px;
+	color:#000;
+}
+.responseItem img {
+	display:inline-block; 
+	margin:5px 20px 5px 5px;
+}
+.responseItem img.left 
+{
+    float:left;
+}
+.responseItem img.right 
+{
+    float:right;
+}
+.responseItem.selected 
+{	
+    /* Decoration */	
+	background: #ff0000; 
+	background: -webkit-gradient(linear, 0 0, 0 100%, from( #ff0000 ) to( #990000 ));
+	background: -webkit-linear-gradient( #ff0000 , #990000 ); 
+	background: -moz-linear-gradient( 	 #ff0000 , #990000 ); 
+	background: -ms-linear-gradient( 	 #ff0000 , #990000 ); 
+	background: -o-linear-gradient( 	 #ff0000 , #990000 ); 
+	background: linear-gradient( 		 #ff0000 , #990000 ); 
+	-pie-background: linear-gradient(	 #ff0000 , #990000 ); 
+}
+.responseItem.selected .response_text 
+{
+    color:#fff; 
+}
+

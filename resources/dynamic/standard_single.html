@@ -1,0 +1,124 @@
+{%
+Dim inputName = CurrentQuestion.InputName()
+Dim inputValue
+Dim caption
+Dim inputId
+Dim image
+Dim attrChecked
+Dim dropAreaPosition = CurrentADC.PropValue("dropAreaPosition")
+
+Dim ar = CurrentQuestion.ParentLoop.AvailableResponses
+Dim j
+For j = 1 To ar.Count 
+    inputName = CurrentQuestion.Iteration(ar[j].Index).InputName()
+    inputId   = inputName
+    inputValue = CurrentQuestion.Iteration(ar[j].Index).InputValue()
+%}
+<input type="hidden" id="{%= inputId %}" name="{%= inputName %}" value="{%= inputValue %}"  />
+{% Next %}
+
+{% IF dropAreaPosition = "top" or dropAreaPosition = "left" Then %}
+    <div class="dropContainer">
+    {%
+    Dim i
+    For i = 1 To CurrentQuestion.AvailableResponses.Count 
+        inputId     = inputName + "_" + i
+        inputValue  = CurrentQuestion.AvailableResponses[i].InputValue()
+        caption     = CurrentQuestion.AvailableResponses[i].Caption
+    %}
+    <div id="drop{%=i-1%}" class="dropZone" data-value="{%= inputValue %}" data-index="{%=i-1%}">
+        <div class="drop_text">{%:= caption %}</div>
+        {%
+        For j = 1 To ar.Count 
+            inputName  = CurrentQuestion.Iteration(ar[j].Index).InputName()
+            inputId    = inputName
+            inputValue = CurrentQuestion.Iteration(ar[j].Index).InputValue()
+            caption    = ar[j].Caption
+            image	   = ar.ResourceURL[j]
+        
+        %}
+        <div class="resMini{%=j-1%} responseItemMini" data-index="{%=j-1%}" style="display:none;">
+            <div class="cross"></div>
+            {% IF CurrentADC.PropValue("responseTextPosition") = "top" or CurrentADC.PropValue("responseTextPosition") = "left" Then %}
+                <div class="response_text">{%:= caption %}</div>
+            {% EndIF %}
+            {% IF image <> "" Then %}
+                <img src="{%= image %}" />
+            {% EndIF %}
+            {% IF CurrentADC.PropValue("responseTextPosition") = "bottom" or CurrentADC.PropValue("responseTextPosition") = "right" Then %}
+                <div class="response_text">{%:= caption %}</div>
+            {% EndIF %}
+            <div style="clear:both"></div>
+        </div>
+        {% Next %}
+        <div style="clear:both"></div>
+    </div>
+    {% Next %}
+   	</div>
+{% EndIF %}
+<div class="startArea">
+
+{%
+For j = 1 To ar.Count 
+    inputName  = CurrentQuestion.Iteration(ar[j].Index).InputName()
+    inputId    = inputName
+    inputValue = CurrentQuestion.Iteration(ar[j].Index).InputValue()
+    caption    = ar[j].Caption
+    image	   = ar.ResourceURL[j]
+
+%}
+<div id="res{%=j-1%}" class="responseItem" data-index="{%=j-1%}">
+	{% IF CurrentADC.PropValue("responseTextPosition") = "top" or CurrentADC.PropValue("responseTextPosition") = "left" Then %}
+        <div class="response_text">{%:= caption %}</div>
+    {% EndIF %}
+    {% IF image <> "" Then %}
+        <img src="{%= image %}" />
+    {% EndIF %}
+	{% IF CurrentADC.PropValue("responseTextPosition") = "bottom" or CurrentADC.PropValue("responseTextPosition") = "right" Then %}
+        <div class="response_text">{%:= caption %}</div>
+    {% EndIF %}
+	<div style="clear:both"></div>
+</div>
+{% Next %}
+<div class="clear"></div>
+</div>
+{% IF dropAreaPosition = "bottom" or dropAreaPosition = "right" Then %}
+    <div class="dropContainer">
+    {%
+    Dim i
+    For i = 1 To CurrentQuestion.AvailableResponses.Count 
+        inputId     = inputName + "_" + i
+        inputValue  = CurrentQuestion.AvailableResponses[i].InputValue()
+        caption     = CurrentQuestion.AvailableResponses[i].Caption
+    %}
+    <div id="drop{%=i-1%}" class="dropZone" data-value="{%= inputValue %}" data-index="{%=i-1%}">
+        <div class="drop_text">{%:= caption %}</div>
+        {%
+        For j = 1 To ar.Count 
+            inputName  = CurrentQuestion.Iteration(ar[j].Index).InputName()
+            inputId    = inputName
+            inputValue = CurrentQuestion.Iteration(ar[j].Index).InputValue()
+            caption    = ar[j].Caption
+            image	   = ar.ResourceURL[j]
+        
+        %}
+        <div class="resMini{%=j-1%} responseItemMini" data-index="{%=j-1%}" style="display:none;">
+            <div class="cross"></div>
+            {% IF CurrentADC.PropValue("responseTextPosition") = "top" or CurrentADC.PropValue("responseTextPosition") = "left" Then %}
+                <div class="response_text">{%:= caption %}</div>
+            {% EndIF %}
+            {% IF image <> "" Then %}
+                <img src="{%= image %}" />
+            {% EndIF %}
+            {% IF CurrentADC.PropValue("responseTextPosition") = "bottom" or CurrentADC.PropValue("responseTextPosition") = "right" Then %}
+                <div class="response_text">{%:= caption %}</div>
+            {% EndIF %}
+            <div style="clear:both"></div>
+        </div>
+        {% Next %}
+        <div style="clear:both"></div>
+    </div>
+    {% Next %}
+{% EndIF %}
+
+</div>

@@ -1,0 +1,50 @@
+<table cellpadding="10" cellspacing="0" border="0"><tr><td></td>
+{% 
+Dim i 
+Dim j
+Dim ar = CurrentQuestion.ParentLoop.AvailableResponses
+Dim inputName = CurrentQuestion.InputName()
+Dim inputId
+Dim inputValue
+Dim caption
+Dim rcaption
+Dim attrChecked
+Dim resource
+Dim imageWidth = CurrentADC.PropValue("fbImageWidth")
+
+For i = 1 To ar.Count 
+	caption   = ar[i].Caption
+%}
+<td align="center">
+	<p>{%:= caption %}</p>
+</td>
+{% Next %}
+</tr>
+
+{% 
+Dim car = CurrentQuestion.AvailableResponses
+
+For i = 1 To car.Count 
+	rcaption  = car[i].Caption
+    resource = car.ResourceURL[i]
+%}
+<tr>
+	<td align="center">
+    	{% IF (resource <> "") Then %}
+			<img src="{%= resource %}" width="{%= imageWidth %}" />
+		{% EndIf %}
+    	<p>{%:= rcaption %}</p>
+	</td>
+{%
+    For j = 1 To ar.Count
+    	caption   	= ar[j].Caption
+        inputValue  = CurrentQuestion.AvailableResponses[i].InputValue()
+        inputName = CurrentQuestion.Iteration(ar[j].Index).InputName()
+   		attrChecked = On(CurrentQuestion.Iteration(ar[j].Index).AvailableResponses[i].IsSelected, "checked=\"checked\"", "")
+        
+%}
+    <td align="center"><input type="checkbox" name="{%= inputName %} {%= inputValue %}" value="{%= inputValue %}" {%:= attrChecked %} title="{%= caption %}" /></td>
+	{% Next %}
+</tr>
+{% Next %}
+</table>

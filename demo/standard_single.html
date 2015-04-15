@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+ <head>
+   <title>Statement list review</title>
+   <link rel="Stylesheet" href="statementList.css" />
+   <style type="text/css">
+       #adc_1 .statement 
+       {
+           width : 400px;
+       }
+       #adc_1 .previousStatement,
+       #adc_1 .nextStatement 
+       {
+           width : 75px;
+       }
+       #adc_1 .responseItem  
+       {
+           width:400px;
+           height:120px;
+       }
+       
+       #adc_1 .responseItem > img,
+       #adc_1 .imgSpacer
+       {
+           width:60px;
+           height:70px;
+       }
+   </style>
+   <script type="text/javascript" src="jquery-1.10.1.min.js"></script>
+   <script type="text/javascript" src="jquery.transit.min.js"></script>
+   <script type="text/javascript" src="statementList.js"></script>
+   <script type="text/javascript">
+       jQuery(function ($) {
+           $('#adc_1').adcStatementList({
+               iterations: [{
+                   id: 'U1',
+                   caption: "Iteration 1"
+               }, {
+                   id: 'U3',
+                   caption: "Iteration 2"
+               }, {
+                   id: 'U5',
+                   caption: "Iteration 3"
+               }]
+           });
+       });
+   </script>
+ </head>
+
+ <body>
+ 
+    <div id="adc_1">
+        <div class="previousStatement"><span>Previous</span></div>
+        <div class="statement">
+            <span class="statement_text"></span>
+        </div>
+        <div class="nextStatement"><span>Next</span></div>
+
+        <div class="responseItem" data-value="1">
+            <img src="asahi.jpg" />
+            <span class="response_text">Asahi</span>
+            <div style="clear:both"></div>
+        </div>
+
+        <div class="responseItem" data-value="2">
+            <img src="brahma.jpg"/>
+            <span class="response_text">Brahma</span>
+            <div style="clear:both"></div>
+        </div>
+
+        <div class="responseItem" data-value="3">
+            <img src="corona.jpg" />
+            <span class="response_text">Corona</span>
+            <div style="clear:both"></div>
+        </div>
+
+        <div class="responseItem" data-value="4">
+            <div class="imgSpacer"></div>
+            <span class="response_text">Test</span>
+        </div>
+
+        <input type="hidden" id="U1" name="U1" value="1" />
+        <input type="hidden" id="U3" name="U3" value="2" />
+        <input type="hidden" id="U5" name="U5" value="3" />
+    </div>
+ 
+ </body>
+
+</html>

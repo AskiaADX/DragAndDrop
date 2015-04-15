@@ -1,0 +1,33 @@
+{%
+Dim inputName = CurrentQuestion.InputName()
+Dim inputValue
+Dim caption
+Dim inputId
+Dim image
+Dim attrChecked
+Dim isExclusive
+Dim par = CurrentQuestion.ParentLoop.AvailableResponses
+
+Dim j
+For j = 1 To par.Count 
+%}
+<input type="hidden" name="{%= CurrentQuestion.Iteration(par[j].Index).InputName("list")%}" value="{%= CurrentQuestion.Iteration(par[j].Index).InputValue()%}" />
+{%
+Next
+
+Dim i
+For i = 1 To CurrentQuestion.AvailableResponses.Count 
+    inputId     = inputName + "_" + i
+    inputValue  = CurrentQuestion.AvailableResponses[i].InputValue()
+    caption     = CurrentQuestion.AvailableResponses[i].Caption
+    image		= CurrentQuestion.AvailableResponses.ResourceURL[i]
+    isExclusive = On(CurrentQuestion.AvailableResponses[i].IsExclusive, " exclusive", "")
+%}
+<div class="responseItem{%:= isExclusive %}" data-value="{%= inputValue %}" data-id="{%= i-1 %}" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
+	{% IF image <> "" Then %}
+		<img src="{%= image %}" />
+    {% EndIF %}
+	<span class="response_text">{%:= caption %}</span>
+	<div style="clear:both"></div>
+</div>
+{% Next %}
