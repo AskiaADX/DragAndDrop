@@ -7,7 +7,7 @@
   <info>
     <name>adc2-dragndrop</name>
     <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <date>2014-05-27</date>
     <description>
       <![CDATA[
@@ -27,6 +27,9 @@
 		v1.0.7 - fixed IE7/8 bug not storing values
 		v1.0.8 - fixed bug makeing response revert to start area before move to target
 		v1.0.9 - fixed image loading glitch
+		v1.0.10 - fixed center alignment for repsonses
+				- added drop container margin property
+				- fixed alignment of responses in drop areas
 		NB fix selectability
       ]]>
     </description>
@@ -568,6 +571,14 @@
 			]]>
         </description>
         <value>200px</value>
+      </property>
+	  <property xsi:type="standardProperty" id="dropContainerMargin" name="Drop Area Container Margin" type="number" mode="static">
+        <description>
+          <![CDATA[
+	          Set drop area container width
+			]]>
+        </description>
+        <value>0px</value>
       </property>
 	  <property xsi:type="standardProperty" id="dropAreaWidth" name="Drop Area Width" type="number" mode="static">
         <description>

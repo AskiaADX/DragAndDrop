@@ -282,7 +282,7 @@
 		}
 		
 		function sortItems(containerID) {
-						
+									
 			if ( containerID >= 0 && $.isNumeric(containerID) ) {
 			
 				var counter = 0,
@@ -303,6 +303,7 @@
 		/* TAKEN FROM ACTIONSCRIPT */
 		
 		function layout(containerID) {
+			
 			// CALCULATE ROWS AND COLUMNS
 			var possible_columns = 1,
 				possible_rows = 1,
@@ -378,9 +379,9 @@
 					col_width = targetWidth / columnsTotal,
 					startX = currentTarget.position().left,
 					startY = currentTarget.position().top,
-					finalX = startX - ($(this).outerWidth()*0.5) + targetAreaPaddingX + (col_width*columns) - (col_width*0.5),
-					finalY = startY - ($(this).outerHeight()*0.5) + targetAreaPaddingY + (row_height*rows) - (row_height*0.5) + currentTarget.find('.drop_text').outerHeight(true);
-				
+					finalX = startX - ($(this).width()*0.5) + targetAreaPaddingX + (col_width*columns) - (col_width*0.5),
+					finalY = startY - ($(this).height()*0.5) + targetAreaPaddingY + (row_height*rows) - (row_height*0.5) + currentTarget.find('.drop_text').outerHeight(true);
+								
 				var xDiff = col_width/$(this).outerWidth(),
 					yDiff = row_height/$(this).outerHeight();
 		
@@ -448,14 +449,11 @@
 						$(this).find('.cross').css('display','none')
 					}
 										
-					// Set value to card?				
+					// Set value to card?
+								/**/	
 					$( ui.draggable )
 						.transition({ scale: options.scaleOnTarget, 'z-index': 1 }, options.animationSpeed)
 						.draggable({ 
-							cursorAt: { 
-								top:($(this).height()*options.scaleOnTarget), 
-								left:($(this).width()*options.scaleOnTarget)/2 
-							},
 							zIndex: 9999,
 							start: function( event, ui ) {
 	
@@ -498,7 +496,9 @@
 				dragging = false;
 					
 				$( ui.draggable )
-					.draggable({revert:'invalid'})
+					.draggable({
+						revert:'invalid'
+					})
 					.animate({ top:$(ui.draggable).data('top'), left:$(ui.draggable).data('left') }, options.animationSpeed)
 					.transition({ scale: 1 }, options.animationSpeed)
 					.attr('data-value','');
@@ -513,6 +513,7 @@
 			var offset = $('.responseItem').eq(i).offset();
 				$('.responseItem').eq(i).css("position", "absolute");
 				$('.responseItem').eq(i).offset(offset);
+				$('.responseItem').eq(i).css('margin','auto');
 				
 		}
 		if ( stackResponses ) {
@@ -522,7 +523,7 @@
 				var offset = $('.responseItem').eq(0).offset();
 					$('.responseItem').eq(i).css("position", "absolute");
 					$('.responseItem').eq(i).offset(offset);
-					
+					$('.responseItem').eq(i).css('margin','auto');
 			}
 			
 			$('.startArea').height( $('.responseItem').eq(0).outerHeight(true) );

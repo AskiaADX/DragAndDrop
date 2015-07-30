@@ -73,6 +73,9 @@ Dim dropAreaShadow =CurrentADC.PropValue("dropAreaShadow")
 Dim dropAreaPadding =CurrentADC.PropValue("dropAreaPadding")
 Dim dropAreaMargin =CurrentADC.PropValue("dropAreaMargin")
 Dim dropAreaTextPadding =CurrentADC.PropValue("dropAreaTextPadding")
+Dim dropContainerMargin =CurrentADC.PropValue("dropContainerMargin")
+
+Dim stackResponses =CurrentADC.PropValue("stackResponses")
 
 Dim controlAlign =CurrentADC.PropValue("controlAlign")
 
@@ -125,9 +128,14 @@ EndIF
 	width: {%= responseWidth%};
 	
 	padding: {%= responsePadding%};
-	margin: {%= responseMargin%};
+	{% IF stackResponses = "1" And responseAlign = "center" Then %}
+		margin: 0px auto;
+		float:none;
+	{% Else %}
+		margin: {%= responseMargin%};
+		float:left;
+	{% EndIF %}	
 	
-	float:left;
 	z-index: 100;
 }
 
@@ -223,6 +231,10 @@ EndIF
 	-moz-border-radius:		{%= startAreaBorderRadius%}; 
 	-khtml-border-radius:	{%= startAreaBorderRadius%}; 
 	border-radius:			{%= startAreaBorderRadius%};
+	
+	{% IF stackResponses = "1" And responseAlign = "center" Then %}
+		text-align:center;
+	{% EndIF %}
 }
 
 #adc_{%= CurrentADC.InstanceId%} .responseActive { 
@@ -249,6 +261,8 @@ EndIF
 	{% IF dropAreaPosition = "left" or dropAreaPosition = "right" Then %}
 		float: {%= dropAreaPosition%};
 	{% EndIF %}
+	
+	margin: {%= dropContainerMargin%};
 	
 }
 
