@@ -95,10 +95,24 @@
 			autoStackWidth = options.autoStackWidth,
 			dragging = false,
 			total_images = $container.find("img").length,
-			images_loaded = 0;
+			images_loaded = 0,
+			dropAreaPosition = options.dropAreaPosition,
+			enableMobileFit = false;
 		
 		if ( autoStackWidth !== '' ) {
-			if ( $(this).parents('.controlContainer').width() <= parseInt(autoStackWidth) ) stackResponses = true;
+			if ( $(this).parents('.controlContainer').width() <= parseInt(autoStackWidth) ) {
+				stackResponses = true,
+				enableMobileFit = true;
+			}
+		}
+		
+		if ( enableMobileFit ) {
+			if ( dropAreaPosition === 'left' || dropAreaPosition === 'right' ) {
+				$('.dropContainer, .startArea').width('49%');
+				$('.startArea').height($('.dropContainer').height());
+			} else {
+				$('.dropContainer, .startArea, .dropZone').width('98%');
+			}
 		}
 			
 		$container.find('.responseItem img').hide();
@@ -106,6 +120,8 @@
 		if ( exclusiveArray[0] != null ) exclusiveAreas = true;
 			
 		$('.dropZone').each(function(index) { 
+			if ( $(this).outerWidth(true) > $('.dropContainer').width() )
+				$(this).width( $(this).width() - ($(this).outerWidth(true) - $('.dropContainer').outerWidth()) );
 			// check if dropzone is exclusive
 			for ( var i=0; i<exclusiveArray.length; i++ ) {
 				if ( (exclusiveArray[i] >= 0 && exclusiveArray[i] == index) || ( exclusiveArray[i] < 0 && (index-numberOfDropZones) == exclusiveArray[i] ) ) $(this).data('exclusive',true);
@@ -163,7 +179,6 @@
 			if ( ($container.find('.nextStatement').css('display') === 'none' || $container.find('.nextStatement').size() === 0) || ( ($container.find('.nextStatement').css('display') != 'none' || $container.find('.nextStatement').size() > 0) && autoForward) ) nextIteration();
 			
 		}
-		
 
 		// Check for missing images and resize
 		$container.find('.responseItem img').each(function forEachImage(index) {
@@ -241,6 +256,16 @@
 
 			}
 		});
+		
+		$('.responseItem').each(function(index) { 
+		
+			if ( $(this).outerWidth(true) > $('.dropContainer').width() )
+				$(this).width( $(this).width() - ($(this).outerWidth(true) - $('.dropContainer').width()) );
+				
+		});
+		
+		if ( stackResponses && enableMobileFit && (dropAreaPosition === 'top' || dropAreaPosition === 'bottom') )
+			$('.startArea').height( $('.responseItem').eq(0).outerHeight(true) );
 		
 		// add ns to last x items
 		if ( options.numberNS > 0 ) $container.find('.responseItem').slice(-options.numberNS).addClass('ns');
@@ -397,9 +422,9 @@
 				if (!Modernizr.csstransforms) {
 					
 					$( this ).find('img')
-						.width( $(this).data('oImgWidth') * finalScaleX )
-						.height( $(this).data('oImgHeight') * finalScaleY );
-					$( this ).find('.response_text').css('font-size',parseInt( $(this).data('oFontSize') ) + 'px' );
+						.width( $(this).data('oimgwidth') * finalScaleX )
+						.height( $(this).data('oimgheight') * finalScaleY );
+					$( this ).find('.response_text').css('font-size',parseInt( $(this).data('ofontsize') ) + 'px' );
 					$(this).transition({ left: finalX, top: finalY }, options.animationSpeed);
 
 				} else
@@ -433,7 +458,7 @@
 				if ( areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0 ) {
 				
 					// Fail - revert to original position and reset value	
-					$(ui.draggable).data({'onTarget':false}).attr({'data-value':''});
+					$(ui.draggable).data({'ontarget':false}).attr({'data-value':''});
 					$(ui.draggable).transition({ scale: 1, top:$(ui.draggable).data('top'), left:$(ui.draggable).data('left') }, options.animationSpeed);
 					$('#' + iterations[$(ui.draggable).data('index')].id).val('');
 				
@@ -452,6 +477,7 @@
 					// Set value to card?
 								/**/	
 					$( ui.draggable )
+						.css('margin','0')
 						.transition({ scale: options.scaleOnTarget, 'z-index': 1 }, options.animationSpeed)
 						.draggable({ 
 							zIndex: 9999,
@@ -496,6 +522,7 @@
 				dragging = false;
 					
 				$( ui.draggable )
+					.css('margin',$(ui.draggable).data('omargin'))
 					.draggable({
 						revert:'invalid'
 					})
@@ -511,9 +538,8 @@
 		for ( var i=($('.responseItem').size()-1); i>=0; i-- ) {
 		
 			var offset = $('.responseItem').eq(i).offset();
-				$('.responseItem').eq(i).css("position", "absolute");
-				$('.responseItem').eq(i).offset(offset);
-				$('.responseItem').eq(i).css('margin','auto');
+			$('.responseItem').eq(i).css("position", "absolute");
+			$('.responseItem').eq(i).offset(offset);
 				
 		}
 		if ( stackResponses ) {
@@ -521,12 +547,18 @@
 			for ( var i=($('.responseItem').size()-1); i>=0; i-- ) {
 		
 				var offset = $('.responseItem').eq(0).offset();
-					$('.responseItem').eq(i).css("position", "absolute");
-					$('.responseItem').eq(i).offset(offset);
-					$('.responseItem').eq(i).css('margin','auto');
+				$('.responseItem').eq(i).css("position", "absolute");
+				$('.responseItem').eq(i).offset(offset);
+				//$('.responseItem').eq(i).css('margin','auto');
 			}
 			
-			$('.startArea').height( $('.responseItem').eq(0).outerHeight(true) );
+			var maxHeight = Math.max.apply(Math, $(".responseItem").map(
+				function(){
+					return $(this).height();
+				}
+			));
+			
+			$('.startArea').css('min-height', maxHeight + 'px' );
 			
 		}
 		
@@ -542,10 +574,11 @@
 			$(this).data({
 				'left':$(this).position().left, // REMOVE TOP AND LEFT DATA
 				'top':$(this).position().top,
-				'onTarget':false,
-				'oFontSize':$(this).find('.response_text').css('font-size'),
-				'oWidth':$(this).outerWidth(),
-				'Height':$(this).outerHeight()
+				'ontarget':false,
+				'ofontsize':$(this).find('.response_text').css('font-size'),
+				'owidth':$(this).outerWidth(),
+				'oheight':$(this).outerHeight(),
+				'omargin':$(this).css('margin')
 			}).attr('data-value','');
 								
 			// Check if response already has a value
@@ -560,7 +593,7 @@
 					}
 				}).bind('mouseup', function (event) {
 					noDrag(event.target);	
-				});
+				}).css('margin','0');
 								
 				// IF IE7/8
 				if (!Modernizr.csstransforms) {
@@ -571,10 +604,10 @@
 				} else {
 					
 					var maxItemScale = options.scaleOnTarget,
-						x = $( "#drop"+val ).position().left - $(this).outerWidth(true)*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
-						y = $( "#drop"+val ).position().top - $(this).outerHeight(true)*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
+						x = $( "#drop"+val ).position().left - $(this).width()*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
+						y = $( "#drop"+val ).position().top - $(this).height()*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
 								
-					$(this).data({'onTarget':true}).attr({'data-value':val});
+					$(this).data({'ontarget':true}).attr({'data-value':val});
 					$(this).transition({ /*scale: .5,*/ top:y, left:x }, options.animationSpeed,function() {
 						sortItems(parseInt(val));
 					})
@@ -601,7 +634,7 @@
 		
 		function offTarget(target) {
 			if ($(target).attr('data-value') == '' ) {
-				$(target).data({'onTarget':false}).attr({'data-value':''});
+				$(target).data({'ontarget':false}).attr({'data-value':''});
 				$(target).transition({ scale: 1, top:$(target).data('top'), left:$(target).data('left') }, options.animationSpeed);
 				$('#' + iterations[$(target).data('index')].id).val('');
 			}
@@ -629,10 +662,10 @@
 		
 					$('.dropZone').bind('mouseup', function (e) {
 						setTarget(e, $(this).data('index'));	
-					});/*
+					});
 					$('.startArea').bind('mouseup', function (e) {
 						setTarget(e, 'start');	
-					});*/
+					});
 				}
 				
 			}
@@ -663,23 +696,28 @@
 			
 		}
 		
-		function setTarget(e, target) {
-						
+		function setTarget(e, destination ) {
+			
+			var target = $(e.target);
+												
 			if ( !removingItem ) {
-				if ( target === 'start' ) {
+				if ( destination === 'start' && target.hasClass('startArea') ) {
 					
 					if ( $(clickActive).data('index') != null ) {
-						$(clickActive).data({'onTarget':false}).attr({'data-value':''});
+						$(clickActive).data({'ontarget':false}).attr({'data-value':''}).css('margin',$(clickActive).data('omargin'));
 						$(clickActive).transition({ scale: 1, top:$(clickActive).data('top'), left:$(clickActive).data('left') }, options.animationSpeed);
 						$('#' + iterations[$(clickActive).data('index')].id).val('');
 					}
 					
-				} else {
+				} else if ( destination !== 'start' ) {
+										
+					// Turn off margin to fix centering
+					$(clickActive).css('margin','0');
 					
 					// check for exclusivity if there are exclusive areas /*/*
 					// check if this is an exclusive droparea
 					var areaExclusive = false,
-						containerID = $( "#drop"+target ).data('index');
+						containerID = $( "#drop" + destination ).data('index');
 					
 					if ( exclusiveAreas ) {
 						for ( var i=0; i<exclusiveArray.length; i++ ) {
@@ -691,41 +729,41 @@
 					// check if it already contains an item
 					if ( !(areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0) ) {
 						
-						if ( $(clickActive).data('onTarget') ) { // if already on target
+						if ( $(clickActive).data('ontarget') ) { // if already on target
 							
-							var val = target,
+							var val = destination,
 								maxItemScale = options.scaleOnTarget,
-								x = $( "#drop"+val ).position().left - $(clickActive).outerWidth(true)*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
-								y = $( "#drop"+val ).position().top - $(clickActive).outerHeight(true)*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
+								x = $( "#drop"+val ).position().left - $(clickActive).width()*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
+								y = $( "#drop"+val ).position().top - $(clickActive).height()*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
 										
-							$(clickActive).data({'onTarget':true}).attr({'data-value':val});
+							$(clickActive).data({'ontarget':true}).attr({'data-value':val});
 							$(clickActive).transition({/* scale: .5, */top:y, left:x }, options.animationSpeed,function() {
 								sortItems(parseInt(val));
 							})
 								
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+target ).attr('data-value'));
+							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
 							
 						} else if ($(clickActive).data('index') != null) {
 							
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+target ).attr('data-value'));
+							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
 							
 							// IF IE7/8
 							if (!Modernizr.csstransforms) {
 								
-								var val = target;
+								var val = destination;
 								
 								$(clickActive).attr({'data-value':val}).hide();
-								$('#drop'+target).find('.resMini'+$(clickActive).data('index')).show();
+								$('#drop'+val).find('.resMini'+$(clickActive).data('index')).show();
 								clickActive = '';
 								
 							} else {
 								
-								var val = target,
+								var val = destination,
 									maxItemScale = options.scaleOnTarget,
-									x = $( "#drop"+val ).position().left - $(clickActive).outerWidth(true)*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
-									y = $( "#drop"+val ).position().top - $(clickActive).outerHeight(true)*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
+									x = $( "#drop"+val ).position().left - $(clickActive).width()*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
+									y = $( "#drop"+val ).position().top - $(clickActive).height()*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
 											
-								$(clickActive).data({'onTarget':true}).attr({'data-value':val});
+								$(clickActive).data({'ontarget':true}).attr({'data-value':val});
 								$(clickActive).transition({ /*scale: .5,*/ top:y, left:x }, options.animationSpeed,function() {
 									sortItems(parseInt(val));
 								})
@@ -818,7 +856,7 @@
 				columnsTotal = layoutArray.columns,
 				maxHeight = ($('#drop0').height() - $('#drop0').find('.drop_text').outerHeight())/rowsTotal,
 				maxWidth = ($('#drop0').width() / columnsTotal)-2,
-				ratio = maxWidth/ $container.find('.responseItem').eq(0).data('oWidth'),
+				ratio = maxWidth/ $container.find('.responseItem').eq(0).data('owidth'),
 				newHeight = ($(this).height() * ratio),
 				newImgHeight = ($(this).find('img').height() * ratio),
 				newImgWidth = ($(this).find('img').width() * ratio),

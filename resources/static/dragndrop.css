@@ -25,24 +25,55 @@
 	-khtml-border-radius:	5px 5px 5px 5px; 
 	border-radius:			5px 5px 5px 5px; 
 	
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	
 	position:relative; z-index:1; cursor:pointer; 
 }
+.adc-dragndrop img {
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 	
+}
 
-.adc-dragndrop .response_text { display:block; text-align:center; color:#000; padding-bottom:10px; }
+.adc-dragndrop .response_text { 
+	display:block; text-align:center; color:#000; padding-bottom:10px; 
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box;  
+}
 
 .adc-dragndrop .responseActive { background:#FF0 !important; }
 
-.adc-dragndrop .startArea { display:block; width:400px; }
+.adc-dragndrop .startArea { 
+	display:block; width:400px; 
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+}
 
 .adc-dragndrop .clear { clear:both; }
 
-.adc-dragndrop .dropContainer { display:block; width:300px; z-index:0; }
+.adc-dragndrop .dropContainer { 
+	display:block; width:300px; z-index:0; 
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+}
 
 .adc-dragndrop .dropZone { 
 	vertical-align:top;
-	display:inline-block; width:270px; height:150px; border:1px dashed #fff; margin:5px; padding:10px; z-index:0; 
-	zoom: 1;
-    *display: inline;
+	display:block; width:270px; height:150px; border:1px dashed #fff; margin:5px; padding:10px; z-index:0; 
+	box-sizing: border-box; 
+	-ms-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
 }
 
 .adc-dragndrop .drop_text { display:block;  width:100%; }

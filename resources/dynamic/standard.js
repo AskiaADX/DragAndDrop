@@ -15,7 +15,8 @@ $(window).load(function() {
 		stackResponses: {%= (CurrentADC.PropValue("stackResponses") = "1") %},
 		exclusiveAreas: '{%= CurrentADC.PropValue("exclusiveAreas") %}',
 		selectNextResponse: {%= (CurrentADC.PropValue("selectNextResponse") = "1") %},
-		autoStackWidth : '{%= CurrentADC.PropValue("autoStackWidth") %}',
+		autoStackWidth: '{%= CurrentADC.PropValue("autoStackWidth") %}',
+		dropAreaPosition: '{%= CurrentADC.PropValue("dropAreaPosition") %}',
 		iterations: [
 			{% IF CurrentQuestion.Type = "single" Then %}
 				{%:= CurrentADC.GetContent("dynamic/standard_single.js").ToText()%}
