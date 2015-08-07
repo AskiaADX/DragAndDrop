@@ -105,13 +105,13 @@
 				enableMobileFit = true;
 			}
 		}
-		
+				
 		if ( enableMobileFit ) {
 			if ( dropAreaPosition === 'left' || dropAreaPosition === 'right' ) {
 				$('.dropContainer, .startArea').width('49%');
 				$('.startArea').height($('.dropContainer').height());
 			} else {
-				$('.dropContainer, .startArea, .dropZone').width('98%');
+				$('.dropContainer, .startArea').width('100%');
 			}
 		}
 			
@@ -258,14 +258,9 @@
 		});
 		
 		$('.responseItem').each(function(index) { 
-		
-			if ( $(this).outerWidth(true) > $('.dropContainer').width() )
-				$(this).width( $(this).width() - ($(this).outerWidth(true) - $('.dropContainer').width()) );
-				
+			if ( $(this).outerWidth(true) > $('.startArea').width() )
+				$(this).width( $(this).width() - ($(this).outerWidth(true) - $('.startArea').outerWidth()) );
 		});
-		
-		if ( stackResponses && enableMobileFit && (dropAreaPosition === 'top' || dropAreaPosition === 'bottom') )
-			$('.startArea').height( $('.responseItem').eq(0).outerHeight(true) );
 		
 		// add ns to last x items
 		if ( options.numberNS > 0 ) $container.find('.responseItem').slice(-options.numberNS).addClass('ns');
@@ -404,8 +399,8 @@
 					col_width = targetWidth / columnsTotal,
 					startX = currentTarget.position().left,
 					startY = currentTarget.position().top,
-					finalX = startX - ($(this).width()*0.5) + targetAreaPaddingX + (col_width*columns) - (col_width*0.5),
-					finalY = startY - ($(this).height()*0.5) + targetAreaPaddingY + (row_height*rows) - (row_height*0.5) + currentTarget.find('.drop_text').outerHeight(true);
+					dropLeftMargin = (currentTarget.outerWidth(true) - currentTarget.outerWidth())*0.5,
+					dropTopMargin = (currentTarget.outerHeight(true) - currentTarget.outerHeight())*0.5;
 								
 				var xDiff = col_width/$(this).outerWidth(),
 					yDiff = row_height/$(this).outerHeight();
@@ -417,6 +412,9 @@
 					finalScaleX = xDiff /** ( $(this).outerWidth() * 0.01 )*/,
 					finalScaleY = finalScaleX;
 				}
+				
+				var finalX = (startX + dropLeftMargin) - ($(this).outerWidth(true)*0.5) + targetAreaPaddingX + (col_width*columns) - (col_width*0.5),
+					finalY = (startY + dropTopMargin) - ($(this).outerHeight(true)*0.5) + targetAreaPaddingY + (row_height*rows) - (row_height*0.5) + currentTarget.find('.drop_text').outerHeight(true);
 				
 				// IF IE7/8
 				if (!Modernizr.csstransforms) {
@@ -552,13 +550,13 @@
 				//$('.responseItem').eq(i).css('margin','auto');
 			}
 			
-			var maxHeight = Math.max.apply(Math, $(".responseItem").map(
-				function(){
-					return $(this).height();
-				}
-			));
-			
-			$('.startArea').css('min-height', maxHeight + 'px' );
+			var maxHeight = 0;
+
+			$(".responseItem").each(function(){
+			   if ($(this).outerHeight(true) > maxHeight) { maxHeight = $(this).outerHeight(true); }
+			});
+									
+			$('.startArea').height( maxHeight );
 			
 		}
 		
@@ -697,7 +695,7 @@
 		}
 		
 		function setTarget(e, destination ) {
-			
+						
 			var target = $(e.target);
 												
 			if ( !removingItem ) {
@@ -710,7 +708,7 @@
 					}
 					
 				} else if ( destination !== 'start' ) {
-										
+															
 					// Turn off margin to fix centering
 					$(clickActive).css('margin','0');
 					
@@ -728,13 +726,13 @@
 					
 					// check if it already contains an item
 					if ( !(areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0) ) {
-						
+												
 						if ( $(clickActive).data('ontarget') ) { // if already on target
-							
+													
 							var val = destination,
 								maxItemScale = options.scaleOnTarget,
-								x = $( "#drop"+val ).position().left - $(clickActive).width()*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
-								y = $( "#drop"+val ).position().top - $(clickActive).height()*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
+								x = $( "#drop"+val ).position().left - $(clickActive).outerWidth(true)*0.5 + ($( "#drop"+val ).outerWidth(true)*0.5),
+								y = $( "#drop"+val ).position().top - $(clickActive).outerHeight(true)*0.5 + ($( "#drop"+val ).outerHeight(true)*0.5);
 										
 							$(clickActive).data({'ontarget':true}).attr({'data-value':val});
 							$(clickActive).transition({/* scale: .5, */top:y, left:x }, options.animationSpeed,function() {
@@ -744,7 +742,7 @@
 							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
 							
 						} else if ($(clickActive).data('index') != null) {
-							
+														
 							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
 							
 							// IF IE7/8
@@ -760,12 +758,12 @@
 								
 								var val = destination,
 									maxItemScale = options.scaleOnTarget,
-									x = $( "#drop"+val ).position().left - $(clickActive).width()*0.5 + ($( "#drop"+val ).outerWidth()*0.5),
-									y = $( "#drop"+val ).position().top - $(clickActive).height()*0.5 + ($( "#drop"+val ).outerHeight()*0.5);
+									x = $( "#drop"+val ).position().left - $(clickActive).outerWidth(true)*0.5 + ($( "#drop"+val ).outerWidth(true)*0.5),
+									y = $( "#drop"+val ).position().top - $(clickActive).outerHeight(true)*0.5 + ($( "#drop"+val ).outerHeight(true)*0.5);
 											
 								$(clickActive).data({'ontarget':true}).attr({'data-value':val});
 								$(clickActive).transition({ /*scale: .5,*/ top:y, left:x }, options.animationSpeed,function() {
-									sortItems(parseInt(val));
+									sortItems(parseInt(val));/**/
 								})
 								
 							}
@@ -809,8 +807,8 @@
 			var possible_columns = 1,
 				possible_rows = 1,
 				total_available_card_slots = 1,
-				current_card_height = $('.responseItem').eq(1).outerHeight(),
-				current_card_width = $('.responseItem').eq(1).outerWidth(),
+				current_card_height = $('.responseItemMini').eq(1).outerHeight(),
+				current_card_width = $('.responseItemMini').eq(1).outerWidth(),
 				currentTarget = $( "#drop0" ),
 				targetAreaPaddingX = currentTarget.outerWidth() - currentTarget.width(),
 				targetAreaPaddingY = currentTarget.outerHeight() - currentTarget.height(),
@@ -818,8 +816,10 @@
 				current_target_width = currentTarget.innerWidth() - targetAreaPaddingX,
 				test1 = 1,
 				test2 = 1;
+				
+			console.log(current_card_width);
 			
-			$container.find(".responseItem").each(function(index, element) {
+			$container.find(".responseItemMini").each(function(index, element) {
 				if ( index >= total_available_card_slots ) {
 					
 					test1 = (current_target_height/(possible_rows+1))/(current_card_height);
@@ -849,7 +849,9 @@
 			return placement;	
 		}
 		
-		$('.responseItemMini').each(function() {
+		$('.responseItemMini').each(function(index) {
+			
+			/***/
 			// figure out max items per row
 			var layoutArray = maxLayout(),
 				rowsTotal = layoutArray.rows,
@@ -857,12 +859,13 @@
 				maxHeight = ($('#drop0').height() - $('#drop0').find('.drop_text').outerHeight())/rowsTotal,
 				maxWidth = ($('#drop0').width() / columnsTotal)-2,
 				ratio = maxWidth/ $container.find('.responseItem').eq(0).data('owidth'),
+				newImgPadding = Math.round((($(this).find('img').innerWidth() - $(this).find('img').width()) * ratio)*0.5),
 				newHeight = ($(this).height() * ratio),
-				newImgHeight = ($(this).find('img').height() * ratio),
-				newImgWidth = ($(this).find('img').width() * ratio),
+				newImgHeight = ($container.find('.responseItem img').eq(index).height() * ratio),
+				newImgWidth = ($container.find('.responseItem img').eq(index).width() * ratio),
 				newFontSize = Math.round( parseInt( $container.find('.responseItem .response_text').css('font-size') ) * ratio ),
 				newPadding = Math.round((($(this).innerWidth() - $(this).width()) * ratio)*0.5),
-				newImgPadding = Math.round((($(this).find('img').innerWidth() - $(this).find('img').width()) * ratio)*0.5),
+				
 				newTextPadding = Math.round((($(this).find('.response_text').innerWidth() - $(this).find('.response_text').width()) * ratio)*0.5);
 				
 			$(this).find('img').width( newImgWidth ).height( newImgHeight ).css('padding',newImgPadding + 'px');
@@ -890,6 +893,7 @@
 		$('.responseItemMini').click(
 			function() {
 				
+
 				$(this).hide();
 				$container.find( '#res' + $(this).data('index') ).show();
 				$container.find( '#res' + $(this).data('index') )

@@ -17,6 +17,7 @@ $(window).load(function() {
 		selectNextResponse: {%= (CurrentADC.PropValue("selectNextResponse") = "1") %},
 		autoStackWidth: '{%= CurrentADC.PropValue("autoStackWidth") %}',
 		dropAreaPosition: '{%= CurrentADC.PropValue("dropAreaPosition") %}',
+		fontSize: '{%= CurrentADC.PropValue("fontSize") %}',
 		iterations: [
 			{% IF CurrentQuestion.Type = "single" Then %}
 				{%:= CurrentADC.GetContent("dynamic/standard_single.js").ToText()%}

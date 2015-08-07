@@ -138,7 +138,10 @@ EndIF
 	
 	z-index: 100;
 }
-
+#adc_{%= CurrentADC.InstanceId%} .responseItemMini {
+	margin: {%= responseMargin%};
+	float:left;
+}
 #adc_{%= CurrentADC.InstanceId%} .responseItem:hover, #adc_{%= CurrentADC.InstanceId%} .responseItemMini:hover
 {
 	
@@ -260,18 +263,27 @@ EndIF
 	
 	{% IF dropAreaPosition = "left" or dropAreaPosition = "right" Then %}
 		float: {%= dropAreaPosition%};
+	{% Else %}
+		float:none;
 	{% EndIF %}
 	
 	margin: {%= dropContainerMargin%};
 	
+	{% IF dropAreaAlign = "center" Then %}
+		text-align:center;
+	{% EndIF %}
+	
 }
 
 #adc_{%= CurrentADC.InstanceId%} .dropZone { 
+
 	position:relative;
 	width:{%= dropAreaWidth%};
 	height:{%= dropAreaHeight%};
+	
 	{% IF dropAreaAlign = "center" Then %}
 		text-align:center;
+		display:inline-block;
 	{% Else %}
 		float:{%= dropAreaAlign%};
 	{% EndIF %}

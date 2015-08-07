@@ -36,7 +36,8 @@
 	box-sizing: border-box; 
 	-ms-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
-	-webkit-box-sizing: border-box; 	
+	-webkit-box-sizing: border-box; 
+	image-rendering: auto;	
 }
 
 .adc-dragndrop .response_text { 
