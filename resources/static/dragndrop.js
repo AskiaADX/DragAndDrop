@@ -369,7 +369,7 @@
 		}
 
 		function reorganise(containerID) {
-
+			
 			var rows = 1,
 				columns = 0,
 				layoutArray = layout(containerID),
@@ -543,6 +543,7 @@
 		if ( stackResponses ) {
 			
 			for ( var i=($('.responseItem').size()-1); i>=0; i-- ) {
+
 		
 				var offset = $('.responseItem').eq(0).offset();
 				$('.responseItem').eq(i).css("position", "absolute");
@@ -816,9 +817,7 @@
 				current_target_width = currentTarget.innerWidth() - targetAreaPaddingX,
 				test1 = 1,
 				test2 = 1;
-				
-			console.log(current_card_width);
-			
+							
 			$container.find(".responseItemMini").each(function(index, element) {
 				if ( index >= total_available_card_slots ) {
 					
@@ -849,9 +848,8 @@
 			return placement;	
 		}
 		
-		$('.responseItemMini').each(function(index) {
+		/*$('.responseItemMini').each(function(index) {
 			
-			/***/
 			// figure out max items per row
 			var layoutArray = maxLayout(),
 				rowsTotal = layoutArray.rows,
@@ -867,10 +865,40 @@
 				newPadding = Math.round((($(this).innerWidth() - $(this).width()) * ratio)*0.5),
 				
 				newTextPadding = Math.round((($(this).find('.response_text').innerWidth() - $(this).find('.response_text').width()) * ratio)*0.5);
-				
+								
 			$(this).find('img').width( newImgWidth ).height( newImgHeight ).css('padding',newImgPadding + 'px');
 			$(this).find('.response_text').css({'font-size':newFontSize + 'px','padding':newTextPadding + 'px'});
 			$(this).css({'padding':newPadding + 'px', 'margin':'0px', 'border-radius':'2px'}).width( Math.floor(maxWidth) ).height( Math.floor(newHeight) );
+		});*/
+		
+		$('.responseItem').each(function(index) {
+			
+			
+			/***/
+			// figure out max items per row
+			var layoutArray = maxLayout(),
+				rowsTotal = layoutArray.rows,
+				columnsTotal = layoutArray.columns,
+				maxHeight = (($('#drop0').height() - $('#drop0').find('.drop_text').outerHeight())/rowsTotal)-2,
+				maxWidth = ($('#drop0').width() / columnsTotal)-2,
+				numberOfDropZones = $(this).find('.dropZone').length,
+				ratio = maxWidth/ $(this).width(),
+				newImgPadding = Math.floor((($(this).find('img').innerWidth() - $(this).find('img').width()) * ratio)*0.5),
+				newHeight = ($(this).height() * ratio),
+				newImgHeight = ($(this).find('img').height() * ratio),
+				newImgWidth = Math.floor($(this).find('img').width() * ratio),
+				newFontSize = Math.round( parseInt( $(this).find('.response_text').css('font-size') ) * ratio ),
+				newPadding = Math.round((($(this).innerWidth() - $(this).width()) * ratio)*0.5),
+				newTextPadding = Math.round((($(this).find('.response_text').innerWidth() - $(this).find('.response_text').width()) * ratio)*0.5),
+				currentMini = index;
+				
+			
+				
+			$('.dropZone').each( function(index) {
+				$(this).find('.responseItemMini').eq(currentMini).find('img').css('width', newImgWidth + 'px' ).height( "auto" ).css('padding', newImgPadding + 'px');
+				$(this).find('.responseItemMini').eq(currentMini).find('.response_text').css({'font-size':newFontSize + 'px','padding':newTextPadding + 'px'});
+				$(this).find('.responseItemMini').eq(currentMini).css({'padding':newPadding + 'px', 'margin':'0px', 'border-radius':'2px'}).width( Math.floor(maxWidth) ).height( Math.floor(newHeight) );
+			});
 		});
 		
 		

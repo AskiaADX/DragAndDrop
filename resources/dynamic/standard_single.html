@@ -103,7 +103,7 @@ For j = 1 To ar.Count
         
         %}
         <div class="resMini{%=j-1%} responseItemMini" data-index="{%=j-1%}" style="display:none;">
-            <div class="cross"></div>
+            <div class="cross"><img src="{%:= CurrentADC.URLTo("static/delete32.png") %}" /></div>
             {% IF CurrentADC.PropValue("responseTextPosition") = "top" or CurrentADC.PropValue("responseTextPosition") = "left" Then %}
                 <div class="response_text">{%:= caption %}</div>
             {% EndIF %}
