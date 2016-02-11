@@ -7,7 +7,7 @@
   <info>
     <name>adc2-dragndrop</name>
     <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
-    <version>1.0.11</version>
+    <version>1.0.12</version>
     <date>2014-05-27</date>
     <description>
       <![CDATA[
@@ -31,6 +31,7 @@
 				- added drop container margin property
 				- fixed alignment of responses in drop areas
 		v1.0.11 - fixed IE8 bug
+		v1.0.12 - fixed click to drop value not storing bug
 		NB fix selectability
       ]]>
     </description>

@@ -238,6 +238,8 @@ EndIF
 	{% IF stackResponses = "1" And responseAlign = "center" Then %}
 		text-align:center;
 	{% EndIF %}
+	
+	display:block; width:400px; position:relative;
 }
 
 #adc_{%= CurrentADC.InstanceId%} .responseActive { 

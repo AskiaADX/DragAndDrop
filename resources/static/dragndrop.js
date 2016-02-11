@@ -359,7 +359,7 @@
 					}
 				}
 				total_available_card_slots = possible_columns*possible_rows;
-			})
+			});
 			
 			var placement = {
 				rows: possible_rows,
@@ -527,6 +527,7 @@
 					.animate({ top:$(ui.draggable).data('top'), left:$(ui.draggable).data('left') }, options.animationSpeed)
 					.transition({ scale: 1 }, options.animationSpeed)
 					.attr('data-value','');
+				
 				$('#' + iterations[$(ui.draggable).data('index')].id).val('');
 					
 			}
@@ -724,7 +725,7 @@
 								 ( parseInt(exclusiveArray[i]) < 0 && (parseInt(exclusiveArray[i]) + numberOfDropZones) === containerID) ) areaExclusive = true;
 						}
 					}
-					
+										
 					// check if it already contains an item
 					if ( !(areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0) ) {
 												
@@ -739,12 +740,12 @@
 							$(clickActive).transition({/* scale: .5, */top:y, left:x }, options.animationSpeed,function() {
 								sortItems(parseInt(val));
 							})
-								
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
+								/*/*/
+							$('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
 							
 						} else if ($(clickActive).data('index') != null) {
 														
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',$( "#drop"+val ).attr('data-value'));
+							$('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
 							
 							// IF IE7/8
 							if (!Modernizr.csstransforms) {
@@ -770,6 +771,8 @@
 							}
 							
 						}
+						
+						//$('#' + iterations[$(ui.draggable).data('index')].id).val( String($(this).attr('data-value')));
 						
 						// Remove active status from item
 						$(clickActive).removeClass('responseActive');
@@ -964,7 +967,7 @@
 				}, 100);
 			}
 		});
-		
+
 		if ( total_images > 0 ) {
 			$container.find('img').each(function() {
 				var fakeSrc = $(this).attr('src');
