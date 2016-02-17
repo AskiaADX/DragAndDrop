@@ -415,6 +415,12 @@
 				
 				var finalX = (startX + dropLeftMargin) - ($(this).outerWidth(true)*0.5) + targetAreaPaddingX + (col_width*columns) - (col_width*0.5),
 					finalY = (startY + dropTopMargin) - ($(this).outerHeight(true)*0.5) + targetAreaPaddingY + (row_height*rows) - (row_height*0.5) + currentTarget.find('.drop_text').outerHeight(true);
+					
+				if ( options.controlAlign !== "left" ) {
+					// works for everything?
+					finalX += $container.offset().left - $('.startArea').offset().left;
+					finalY += $container.offset().top - $('.startArea').offset().top;
+				}
 				
 				// IF IE7/8
 				if (!Modernizr.csstransforms) {
@@ -699,6 +705,7 @@
 		function setTarget(e, destination ) {
 						
 			var target = $(e.target);
+			if ( $(e.target).hasClass("drop_text") ) target = $(e.target).parent();
 												
 			if ( !removingItem ) {
 				if ( destination === 'start' && target.hasClass('startArea') ) {
@@ -725,6 +732,9 @@
 								 ( parseInt(exclusiveArray[i]) < 0 && (parseInt(exclusiveArray[i]) + numberOfDropZones) === containerID) ) areaExclusive = true;
 						}
 					}
+					
+					if ( $(clickActive).size() > 0 ) $('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
+
 										
 					// check if it already contains an item
 					if ( !(areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0) ) {
@@ -740,13 +750,9 @@
 							$(clickActive).transition({/* scale: .5, */top:y, left:x }, options.animationSpeed,function() {
 								sortItems(parseInt(val));
 							})
-								/*/*/
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
 							
 						} else if ($(clickActive).data('index') != null) {
-														
-							$('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
-							
+																					
 							// IF IE7/8
 							if (!Modernizr.csstransforms) {
 								
@@ -765,14 +771,12 @@
 											
 								$(clickActive).data({'ontarget':true}).attr({'data-value':val});
 								$(clickActive).transition({ /*scale: .5,*/ top:y, left:x }, options.animationSpeed,function() {
-									sortItems(parseInt(val));/**/
+									sortItems(parseInt(val));
 								})
 								
 							}
 							
 						}
-						
-						//$('#' + iterations[$(ui.draggable).data('index')].id).val( String($(this).attr('data-value')));
 						
 						// Remove active status from item
 						$(clickActive).removeClass('responseActive');

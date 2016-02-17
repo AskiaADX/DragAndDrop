@@ -785,7 +785,7 @@
 	</category>
 	
 	<category id="startArea" name="Start Area">
-	  <property xsi:type="standardProperty" id="startAreaWidth" name="Start Area Width" type="number" mode="static">
+	  <property xsi:type="standardProperty" id="startAreaWidth" name="Start Area Width" type="string" mode="static">
         <description>
           <![CDATA[
 	          Set start area width

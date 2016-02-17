@@ -239,7 +239,7 @@ EndIF
 		text-align:center;
 	{% EndIF %}
 	
-	display:block; width:400px; position:relative;
+	display:block; position:relative;
 }
 
 #adc_{%= CurrentADC.InstanceId%} .responseActive { 
