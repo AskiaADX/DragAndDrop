@@ -92,13 +92,9 @@
         ]]></description>
         <value><![CDATA[false]]></value>
       </property>
-      <property xsi:type="standardProperty" id="autoStackWidth" name="Automatic Stacking Width" type="number" mode="static">
-        <description><![CDATA[
-          
-	          When set will turn on Stack Responses when the screen is below a certain width
-			
-        ]]></description>
-        <value></value>
+      <property xsi:type="standardProperty" id="autoStackWidth" name="Automatic Stacking Width" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[When set will turn on Stack Responses when the screen is below a certain width]]></description>
+        <value><![CDATA[500]]></value>
       </property>
       <property xsi:type="standardProperty" id="selectNextResponse" name="Automatically Select Next Response" type="boolean" mode="static">
         <description><![CDATA[
@@ -395,13 +391,9 @@
           <option value="bottom" text="Bottom" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="dropAreaContainerWidth" name="Drop Area Container Width" type="number" mode="static">
-        <description><![CDATA[
-          
-	          Set drop area container width
-			
-        ]]></description>
-        <value><![CDATA[200px]]></value>
+      <property xsi:type="standardProperty" id="dropAreaContainerWidth" name="Drop Area Container Width" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[Set drop area container width]]></description>
+        <value><![CDATA[50%]]></value>
       </property>
       <property xsi:type="standardProperty" id="dropContainerMargin" name="Drop Area Container Margin" type="number" mode="static">
         <description><![CDATA[
@@ -411,20 +403,12 @@
         ]]></description>
         <value><![CDATA[0px]]></value>
       </property>
-      <property xsi:type="standardProperty" id="dropAreaWidth" name="Drop Area Width" type="number" mode="static">
-        <description><![CDATA[
-          
-	          Set drop area width
-			
-        ]]></description>
-        <value><![CDATA[200px]]></value>
+      <property xsi:type="standardProperty" id="dropAreaWidth" name="Drop Area Width" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[Set drop area width]]></description>
+        <value><![CDATA[100%]]></value>
       </property>
-      <property xsi:type="standardProperty" id="dropAreaHeight" name="Drop Area Height" type="number" mode="static">
-        <description><![CDATA[
-          
-	          Set drop area height
-			
-        ]]></description>
+      <property xsi:type="standardProperty" id="dropAreaHeight" name="Drop Area Height" type="number" mode="static" require="false" visible="true">
+        <description><![CDATA[Set drop area height]]></description>
         <value><![CDATA[100px]]></value>
       </property>
       <property xsi:type="standardProperty" id="dropAreaAlign" name="Drop Area Alignment" type="string" mode="static" require="false" visible="false">
