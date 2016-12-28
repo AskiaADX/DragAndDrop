@@ -25,9 +25,9 @@
 		v1.0.6 - fixed IE7/8 bug related to automatically selected next item
 			   - added autoStackWidth variable
 		v1.0.7 - fixed IE7/8 bug not storing values
-		v1.0.8 - fixed bug makeing response revert to start area before move to target
+		v1.0.8 - fixed bug making response revert to start area before move to target
 		v1.0.9 - fixed image loading glitch
-		v1.0.10 - fixed center alignment for repsonses
+		v1.0.10 - fixed center alignment for responses
 				- added drop container margin property
 				- fixed alignment of responses in drop areas
 		v1.0.11 - fixed IE8 bug
