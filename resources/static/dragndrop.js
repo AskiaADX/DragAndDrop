@@ -177,7 +177,6 @@
 			
 			if ( $('#' + iterations[currentIteration].id).val() != '' ) $container.find('.nextStatement').show();
 			if ( ($container.find('.nextStatement').css('display') === 'none' || $container.find('.nextStatement').size() === 0) || ( ($container.find('.nextStatement').css('display') != 'none' || $container.find('.nextStatement').size() > 0) && autoForward) ) nextIteration();
-			
 		}
 
 		// Check for missing images and resize
@@ -505,9 +504,10 @@
 						
 					$('html').off("mousemove");
 					sortItems( $(this).data('index') );
-				
+                    if (window.askia) {
+                        askia.triggerAnswer();
+                    }
 				}
-				
 			},
 			over: function( event, ui ) {
 
@@ -535,7 +535,9 @@
 					.attr('data-value','');
 				
 				$('#' + iterations[$(ui.draggable).data('index')].id).val('');
-					
+				if (window.askia) {
+                    askia.triggerAnswer();
+                }
 			}
 		}).height( $('.startArea').outerHeight() );
 		
