@@ -5,25 +5,9 @@
 
 
 .adc-dragndrop .responseItem { 
-	float:left; display:block; background:#cecece; 
+	float:left; display:block; 
 	padding:5px;
 	margin:10px;
-	
-	/* Decoration */
-	border: 1px solid #000;
-	background: #69F; 
-	background: -webkit-gradient(linear, 0 0, 0 100%, from( #69F ) to( #36C )); 
-	background: -webkit-linear-gradient( #69F , #36C ); 
-	background: -moz-linear-gradient( 	 #69F , #36C ); 
-	background: -ms-linear-gradient( 	 #69F , #36C ); 
-	background: -o-linear-gradient( 	 #69F , #36C ); 
-	background: linear-gradient( 		 #69F , #36C ); 	
-	
-	/* Effects */
-	-webkit-border-radius:	5px 5px 5px 5px; 
-	-moz-border-radius:		5px 5px 5px 5px; 
-	-khtml-border-radius:	5px 5px 5px 5px; 
-	border-radius:			5px 5px 5px 5px; 
 	
 	box-sizing: border-box; 
 	-ms-box-sizing: border-box; 
@@ -41,14 +25,14 @@
 }
 
 .adc-dragndrop .response_text { 
-	display:block; text-align:center; color:#000; padding-bottom:10px; 
+	display:block; text-align:center; padding-bottom:10px; 
 	box-sizing: border-box; 
 	-ms-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 
 	-webkit-box-sizing: border-box;  
 }
 
-.adc-dragndrop .responseActive { background:#FF0 !important; }
+.adc-dragndrop .responseActive { }
 
 .adc-dragndrop .startArea { 
 	display:block; width:400px; 
@@ -70,7 +54,7 @@
 
 .adc-dragndrop .dropZone { 
 	vertical-align:top;
-	display:block; width:270px; height:150px; border:1px dashed #fff; margin:5px; padding:10px; z-index:0; 
+	display:block; width:270px; height:150px; margin:5px; padding:10px; z-index:0; 
 	box-sizing: border-box; 
 	-ms-box-sizing: border-box; 
 	-moz-box-sizing: border-box; 

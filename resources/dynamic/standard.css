@@ -1,4 +1,4 @@
-﻿/* standard.css */
+/* standard.css */
 {%
 Dim responseColourPrimary =CurrentADC.PropValue("responseColourPrimary")
 Dim responseColourSecondary =CurrentADC.PropValue("responseColourSecondary")
@@ -103,14 +103,7 @@ EndIF
 	{% Else %}
 		border: {%= borderThickness%} {%= borderStyle%} rgb({%= borderColour%});
 	{% EndIF %}	
-	background: rgb({%= responseColourPrimary%}); 
-	background: -moz-linear-gradient(top,  rgb({%= responseColourPrimary%}) 0%, rgb({%= responseColourSecondary%}) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb({%= responseColourPrimary%})), color-stop(100%,rgb({%= responseColourSecondary%}))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgb({%= responseColourPrimary%}) 0%,rgb({%= responseColourSecondary%}) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgb({%= responseColourPrimary%}) 0%,rgb({%= responseColourSecondary%}) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgb({%= responseColourPrimary%}) 0%,rgb({%= responseColourSecondary%}) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgb({%= responseColourPrimary%}) 0%,rgb({%= responseColourSecondary%}) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr={%= responseColourPrimary.ToHexa()%}, endColorstr={%= responseColourSecondary.ToHexa()%},GradientType=0 ); /* IE6-8 */
+	background-color: rgb({%= responseColourPrimary%});
 	
 	/* Effects */
 	-webkit-border-radius:	{%= borderRadius%}; 
@@ -150,14 +143,7 @@ EndIF
 		border: {%= responseHoverBorderThickness%} {%= responseHoverBorderStyle%} rgb({%= responseHoverBorderColour%});
 	{% EndIF %}
 	{% IF showResponseHoverColour = "1" Then %}
-		background: rgb({%= responseHoverColourPrimary%}) !important;
-		background: -moz-linear-gradient(top,  rgb({%= responseHoverColourPrimary%}) 0%, rgb({%= responseHoverColourSecondary%}) 100%) !important; /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb({%= responseHoverColourPrimary%})), color-stop(100%,rgb({%= responseHoverColourSecondary%}))) !important; /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  rgb({%= responseHoverColourPrimary%}) 0%,rgb({%= responseHoverColourSecondary%}) 100%) !important; /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  rgb({%= responseHoverColourPrimary%}) 0%,rgb({%= responseHoverColourSecondary%}) 100%) !important; /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  rgb({%= responseHoverColourPrimary%}) 0%,rgb({%= responseHoverColourSecondary%}) 100%) !important; /* IE10+ */
-		background: linear-gradient(to bottom,  rgb({%= responseHoverColourPrimary%}) 0%,rgb({%= responseHoverColourSecondary%}) 100%) !important; /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='{%= responseHoverColourPrimary.ToHexa()%}', endColorstr='{%= responseHoverColourSecondary.ToHexa()%}',GradientType=0 ) !important; /* IE6-8 */
+		background-color: rgb({%= responseHoverColourPrimary%}) !important;
 	{% EndIF %}
 	-webkit-box-shadow: {%= responseHoverShadow%};
 	-moz-box-shadow: {%= responseHoverShadow%};
@@ -216,14 +202,7 @@ EndIF
 	{% Else %}
 		border: {%= startAreaBorderThickness%} {%= startAreaBorderStyle%} rgb({%= startAreaBorderColour%});
 	{% EndIF %}	
-	background: rgb({%= startAreaColourPrimary%}); 
-	background: -moz-linear-gradient(top,  rgb({%= startAreaColourPrimary%}) 0%, rgb({%= startAreaColourSecondary%}) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb({%= startAreaColourPrimary%})), color-stop(100%,rgb({%= startAreaColourSecondary%}))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgb({%= startAreaColourPrimary%}) 0%,rgb({%= startAreaColourSecondary%}) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgb({%= startAreaColourPrimary%}) 0%,rgb({%= startAreaColourSecondary%}) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgb({%= startAreaColourPrimary%}) 0%,rgb({%= startAreaColourSecondary%}) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgb({%= startAreaColourPrimary%}) 0%,rgb({%= startAreaColourSecondary%}) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr={%= startAreaColourPrimary.ToHexa()%}, endColorstr={%= startAreaColourSecondary.ToHexa()%},GradientType=0 ); /* IE6-8 */
+	background-color: rgb({%= startAreaColourPrimary%});
 	
 	-webkit-box-shadow: {%= startAreaShadow%} !important;
 	-moz-box-shadow: {%= startAreaShadow%} !important;
@@ -249,14 +228,7 @@ EndIF
 	{% Else %}
 		border: {%= responseSelectedBorderThickness%} {%= responseSelectedBorderStyle%} rgb({%= responseSelectedBorderColour%}) !important;
 	{% EndIF %}	
-	background: rgb({%= responseSelectedColourPrimary%}) !important;
-	background: -moz-linear-gradient(top,  rgb({%= responseSelectedColourPrimary%}) 0%, rgb({%= responseSelectedColourSecondary%}) 100%) !important; /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb({%= responseSelectedColourPrimary%})), color-stop(100%,rgb({%= responseSelectedColourSecondary%}))) !important; /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgb({%= responseSelectedColourPrimary%}) 0%,rgb({%= responseSelectedColourSecondary%}) 100%) !important; /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgb({%= responseSelectedColourPrimary%}) 0%,rgb({%= responseSelectedColourSecondary%}) 100%) !important; /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgb({%= responseSelectedColourPrimary%}) 0%,rgb({%= responseSelectedColourSecondary%}) 100%) !important; /* IE10+ */
-	background: linear-gradient(to bottom,  rgb({%= responseSelectedColourPrimary%}) 0%,rgb({%= responseSelectedColourSecondary%}) 100%) !important; /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='{%= responseSelectedColourPrimary.ToHexa()%}', endColorstr='{%= responseSelectedColourSecondary.ToHexa()%}',GradientType=0 ) !important; /* IE6-8 */
+	background-color: rgb({%= responseSelectedColourPrimary%}) !important;
 }
 
 #adc_{%= CurrentADC.InstanceId%} .dropContainer { 
@@ -296,14 +268,7 @@ EndIF
 	{% Else %}
 		border: {%= dropAreaBorderThickness%} {%= dropAreaBorderStyle%} rgb({%= dropAreaBorderColour%});
 	{% EndIF %}	
-	background: rgb({%= dropAreaColourPrimary%}); 
-	background: -moz-linear-gradient(top,  rgb({%= dropAreaColourPrimary%}) 0%, rgb({%= dropAreaColourSecondary%}) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb({%= dropAreaColourPrimary%})), color-stop(100%,rgb({%= dropAreaColourSecondary%}))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgb({%= dropAreaColourPrimary%}) 0%,rgb({%= dropAreaColourSecondary%}) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgb({%= dropAreaColourPrimary%}) 0%,rgb({%= dropAreaColourSecondary%}) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgb({%= dropAreaColourPrimary%}) 0%,rgb({%= dropAreaColourSecondary%}) 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  rgb({%= dropAreaColourPrimary%}) 0%,rgb({%= dropAreaColourSecondary%}) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr={%= dropAreaColourPrimary.ToHexa()%}, endColorstr={%= dropAreaColourSecondary.ToHexa()%},GradientType=0 ); /* IE6-8 */
+	background-color: rgb({%= dropAreaColourPrimary%});
 	
 	-webkit-box-shadow: {%= dropAreaShadow%} !important;
 	-moz-box-shadow: {%= dropAreaShadow%} !important;

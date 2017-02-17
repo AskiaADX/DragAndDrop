@@ -230,12 +230,8 @@
           <option value="none" text="No" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="responseColourPrimary" name="Response Colour Primary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Primary colour of the item]]></description>
-        <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="responseColourSecondary" name="Response Colour Secondary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Secondary colour of the item]]></description>
+      <property xsi:type="standardProperty" id="responseColourPrimary" name="Response Background Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the item]]></description>
         <value><![CDATA[{%= Theme.NeutralLightColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="fontColour" name="Response Font Colour" type="color" mode="dynamic" require="false" visible="false">
@@ -277,12 +273,8 @@
         <description><![CDATA[This will change the colour of responses when hovered over]]></description>
         <value><![CDATA[1]]></value>
       </property>
-      <property xsi:type="standardProperty" id="responseHoverColourPrimary" name="Response Hover Colour Primary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Primary colour of the response when hovering]]></description>
-        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="responseHoverColourSecondary" name="Response Hover Colour Secondary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Secondary colour of the response when hovering]]></description>
+      <property xsi:type="standardProperty" id="responseHoverColourPrimary" name="Response Hover Background Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the response when hovering]]></description>
         <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="showResponseHoverFontColour" name="Show Response Hover Font Colour" type="boolean" mode="static" require="false" visible="false">
@@ -324,12 +316,8 @@
           <option value="none" text="Off" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="responseSelectedColourPrimary" name="Selected Response Colour Primary" type="color" mode="dynamic" require="false" visible="false">
-        <description><![CDATA[Primary colour of the selected item]]></description>
-        <value><![CDATA[{%= Theme.NeutralColor %}]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="responseSelectedColourSecondary" name="Selected Response Colour Secondary" type="color" mode="dynamic" require="false" visible="false">
-        <description><![CDATA[Secondary colour of the selected item]]></description>
+      <property xsi:type="standardProperty" id="responseSelectedColourPrimary" name="Selected Response Background Colour" type="color" mode="dynamic" require="false" visible="false">
+        <description><![CDATA[Background colour of the selected item]]></description>
         <value><![CDATA[{%= Theme.NeutralColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="responseSelectedFontColour" name="Selected Response Font Colour" type="color" mode="dynamic" require="false" visible="false">
@@ -417,12 +405,8 @@
           <option value="center" text="Center" />
         </options>
       </property>
-      <property xsi:type="standardProperty" id="dropAreaColourPrimary" name="Drop Area Colour Primary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Primary colour of the drop area]]></description>
-        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="dropAreaColourSecondary" name="Drop Area Colour Secondary" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
-        <description><![CDATA[Secondary colour of the drop area]]></description>
+      <property xsi:type="standardProperty" id="dropAreaColourPrimary" name="Drop Area Background Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
+        <description><![CDATA[Background colour of the drop area]]></description>
         <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="dropAreaBorderColour" name="Drop Area Border Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
@@ -518,12 +502,8 @@
         ]]></description>
         <value><![CDATA[50%]]></value>
       </property>
-      <property xsi:type="standardProperty" id="startAreaColourPrimary" name="Start Area Colour Primary" type="color" mode="dynamic" require="false" visible="false">
-        <description><![CDATA[Primary colour of the selected item]]></description>
-        <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
-      </property>
-      <property xsi:type="standardProperty" id="startAreaColourSecondary" name="Start Area Colour Secondary" type="color" mode="dynamic" require="false" visible="false">
-        <description><![CDATA[Secondary colour of the selected item]]></description>
+      <property xsi:type="standardProperty" id="startAreaColourPrimary" name="Start Area Background Colour" type="color" mode="dynamic" require="false" visible="false">
+        <description><![CDATA[Background colour of the selected item]]></description>
         <value><![CDATA[{%= Theme.WhiteColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="startAreaBorderColour" name="Start Area Border Colour" type="color" mode="dynamic" require="false" visible="false">
