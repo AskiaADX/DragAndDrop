@@ -1,11 +1,9 @@
 /* standard.css */
 {%
 Dim responseColourPrimary =CurrentADC.PropValue("responseColourPrimary")
-Dim responseColourSecondary =CurrentADC.PropValue("responseColourSecondary")
 Dim fontColour =CurrentADC.PropValue("fontColour")
 Dim responseShadow =CurrentADC.PropValue("responseShadow")
 Dim responseSelectedColourPrimary =CurrentADC.PropValue("responseSelectedColourPrimary")
-Dim responseSelectedColourSecondary =CurrentADC.PropValue("responseSelectedColourSecondary")
 Dim responseSelectedFontColour =CurrentADC.PropValue("responseSelectedFontColour")
 Dim responseSelectedShadow =CurrentADC.PropValue("responseSelectedShadow")
 
@@ -24,7 +22,6 @@ Dim displayResponseText =CurrentADC.PropValue("displayResponseText")
 Dim responseTextPosition =CurrentADC.PropValue("responseTextPosition")
 
 Dim responseHoverColourPrimary =CurrentADC.PropValue("responseHoverColourPrimary")
-Dim responseHoverColourSecondary =CurrentADC.PropValue("responseHoverColourSecondary")
 Dim responseHoverFontColour =CurrentADC.PropValue("responseHoverFontColour")
 Dim responseHoverBorderColour =CurrentADC.PropValue("responseHoverBorderColour")
 Dim responseHoverBorderThickness =CurrentADC.PropValue("responseHoverBorderThickness")
@@ -48,7 +45,6 @@ Dim responseWidth =CurrentADC.PropValue("responseWidth")
 
 Dim startAreaWidth =CurrentADC.PropValue("startAreaWidth")
 Dim startAreaColourPrimary =CurrentADC.PropValue("startAreaColourPrimary")
-Dim startAreaColourSecondary =CurrentADC.PropValue("startAreaColourSecondary")
 Dim startAreaBorderColour =CurrentADC.PropValue("startAreaBorderColour")
 Dim startAreaBorderThickness =CurrentADC.PropValue("startAreaBorderThickness")
 Dim startAreaBorderStyle =CurrentADC.PropValue("startAreaBorderStyle")
@@ -64,7 +60,6 @@ Dim dropAreaFontSize =CurrentADC.PropValue("dropAreaFontSize")
 Dim dropAreaFontColour =CurrentADC.PropValue("dropAreaFontColour")
 Dim dropAreaTextAlign =CurrentADC.PropValue("dropAreaTextAlign")
 Dim dropAreaColourPrimary =CurrentADC.PropValue("dropAreaColourPrimary")
-Dim dropAreaColourSecondary =CurrentADC.PropValue("dropAreaColourSecondary")
 Dim dropAreaBorderColour =CurrentADC.PropValue("dropAreaBorderColour")
 Dim dropAreaBorderThickness =CurrentADC.PropValue("dropAreaBorderThickness")
 Dim dropAreaBorderStyle =CurrentADC.PropValue("dropAreaBorderStyle")
@@ -143,7 +138,7 @@ EndIF
 		border: {%= responseHoverBorderThickness%} {%= responseHoverBorderStyle%} rgb({%= responseHoverBorderColour%});
 	{% EndIF %}
 	{% IF showResponseHoverColour = "1" Then %}
-		background-color: rgb({%= responseHoverColourPrimary%}) !important;
+		background-color: rgb({%= responseHoverColourPrimary%});
 	{% EndIF %}
 	-webkit-box-shadow: {%= responseHoverShadow%};
 	-moz-box-shadow: {%= responseHoverShadow%};
@@ -180,7 +175,7 @@ EndIF
 #adc_{%= CurrentADC.InstanceId%} .responseItem:hover .response_text, #adc_{%= CurrentADC.InstanceId%} .responseItemMini:hover .response_text 
 { 
 	{% IF showResponseHoverFontColour = "1" Then %}
-		color:rgb({%= responseHoverFontColour%}) !important;
+		color:rgb({%= responseHoverFontColour%});
 	{% EndIF %}
 }
 
@@ -204,9 +199,9 @@ EndIF
 	{% EndIF %}	
 	background-color: rgb({%= startAreaColourPrimary%});
 	
-	-webkit-box-shadow: {%= startAreaShadow%} !important;
-	-moz-box-shadow: {%= startAreaShadow%} !important;
-	box-shadow: {%= startAreaShadow%} !important;
+	-webkit-box-shadow: {%= startAreaShadow%};
+	-moz-box-shadow: {%= startAreaShadow%};
+	box-shadow: {%= startAreaShadow%};
 	
 	/* Effects */
 	-webkit-border-radius:	{%= startAreaBorderRadius%}; 
@@ -224,11 +219,11 @@ EndIF
 #adc_{%= CurrentADC.InstanceId%} .responseActive { 
 	/* Decoration */	
 	{% IF responseSelectedBorderThickness = "none" Then %}
-		border: none !important;
+		border: none;
 	{% Else %}
-		border: {%= responseSelectedBorderThickness%} {%= responseSelectedBorderStyle%} rgb({%= responseSelectedBorderColour%}) !important;
+		border: {%= responseSelectedBorderThickness%} {%= responseSelectedBorderStyle%} rgb({%= responseSelectedBorderColour%});
 	{% EndIF %}	
-	background-color: rgb({%= responseSelectedColourPrimary%}) !important;
+	background-color: rgb({%= responseSelectedColourPrimary%});
 }
 
 #adc_{%= CurrentADC.InstanceId%} .dropContainer { 
@@ -270,9 +265,9 @@ EndIF
 	{% EndIF %}	
 	background-color: rgb({%= dropAreaColourPrimary%});
 	
-	-webkit-box-shadow: {%= dropAreaShadow%} !important;
-	-moz-box-shadow: {%= dropAreaShadow%} !important;
-	box-shadow: {%= dropAreaShadow%} !important;
+	-webkit-box-shadow: {%= dropAreaShadow%};
+	-moz-box-shadow: {%= dropAreaShadow%};
+	box-shadow: {%= dropAreaShadow%};
 	
 	padding:{%= dropAreaPadding%};
 	margin:{%= dropAreaMargin%};

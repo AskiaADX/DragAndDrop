@@ -86,19 +86,15 @@
     <category id="general" name="General">
       <property xsi:type="standardProperty" id="stackResponses" name="Stack Responses" type="boolean" mode="static" require="false" visible="true">
         <description><![CDATA[Whether the resonses are in a single pile]]></description>
-        <value><![CDATA[false]]></value>
+        <value><![CDATA[0]]></value>
       </property>
       <property xsi:type="standardProperty" id="autoStackWidth" name="Automatic Stacking Width" type="number" mode="static" require="false" visible="true">
         <description><![CDATA[When set will turn on Stack Responses when the screen is below a certain width]]></description>
         <value><![CDATA[500]]></value>
       </property>
-      <property xsi:type="standardProperty" id="selectNextResponse" name="Automatically Select Next Response" type="boolean" mode="static">
-        <description><![CDATA[
-          
-	          Whether to automatically select the next response
-			
-        ]]></description>
-        <value><![CDATA[false]]></value>
+      <property xsi:type="standardProperty" id="selectNextResponse" name="Automatically Select Next Response" type="boolean" mode="static" require="false" visible="true">
+        <description><![CDATA[Whether to automatically select the next response]]></description>
+        <value><![CDATA[0]]></value>
       </property>
       <property xsi:type="standardProperty" id="exclusiveAreas" name="Exclusive Areas" type="string" mode="static">
         <description><![CDATA[
@@ -287,7 +283,7 @@
       </property>
       <property xsi:type="standardProperty" id="showResponseHoverBorder" name="Show Response Hover Border" type="boolean" mode="static" require="false" visible="false">
         <description><![CDATA[This will change the colour of the border of responses when hovered over]]></description>
-        <value><![CDATA[true]]></value>
+        <value><![CDATA[1]]></value>
       </property>
       <property xsi:type="standardProperty" id="responseHoverBorderColour" name="Response Hover Border Colour" type="color" mode="dynamic" require="false" visible="false">
         <description><![CDATA[Border colour for responses when hovering]]></description>
@@ -454,13 +450,9 @@
       </property>
     </category>
     <category id="images" name="Images">
-      <property xsi:type="standardProperty" id="autoImageSize" name="Force image to fit" type="boolean" mode="static">
-        <description><![CDATA[
-          
-	          If response height or width is forced then image will be resized to fit within container. If on this will override image resizeing rules
-	        
-        ]]></description>
-        <value><![CDATA[false]]></value>
+      <property xsi:type="standardProperty" id="autoImageSize" name="Force image to fit" type="boolean" mode="static" require="false" visible="true">
+        <description><![CDATA[If response height or width is forced then image will be resized to fit within container. If on this will override image resizeing rules]]></description>
+        <value><![CDATA[0]]></value>
       </property>
       <property xsi:type="standardProperty" id="maxImageWidth" name="Max Image Width" type="number" mode="static">
         <description><![CDATA[
