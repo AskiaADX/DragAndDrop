@@ -42,6 +42,7 @@
 		(options.useRange = Boolean(options.useRange));
 		(options.imageAlign = options.imageAlign || 'left');
 		(options.scaleOnTarget = options.scaleOnTarget || 0.5);
+        (options.currentQuestion = options.currentQuestion || '');
 				
 		// Delegate .transition() calls to .animate() if the browser can't do CSS transitions.
 		if (!$.support.transition) $.fn.transition = $.fn.animate;
@@ -496,7 +497,10 @@
 					$( ui.draggable ).attr('data-value',$(this).data('index'));
 					//$('#' + iterations[$(ui.draggable).data('index')].id).attr('value',$(this).attr('data-value'));
 					$('#' + iterations[$(ui.draggable).data('index')].id).val( String($(this).attr('data-value')));
-                    if (window.askia) {
+                    if (window.askia 
+                        && window.arrLiveRoutingShortcut 
+                        && window.arrLiveRoutingShortcut.length > 0
+                        && window.arrLiveRoutingShortcut.indexOf(options.currentQuestion) >= 0) {
                         askia.triggerAnswer();
                     }
 										
@@ -535,7 +539,10 @@
 					.attr('data-value','');
 				
 				$('#' + iterations[$(ui.draggable).data('index')].id).val('');
-                if (window.askia) {
+                if (window.askia 
+                    && window.arrLiveRoutingShortcut 
+                    && window.arrLiveRoutingShortcut.length > 0
+                    && window.arrLiveRoutingShortcut.indexOf(options.currentQuestion) >= 0) {
                     askia.triggerAnswer();
                 }
 			}
@@ -716,7 +723,10 @@
 						$(clickActive).data({'ontarget':false}).attr({'data-value':''}).css('margin',$(clickActive).data('omargin'));
 						$(clickActive).transition({ scale: 1, top:$(clickActive).data('top'), left:$(clickActive).data('left') }, options.animationSpeed);
 						$('#' + iterations[$(clickActive).data('index')].id).val('');
-                        if (window.askia) {
+                        if (window.askia 
+                            && window.arrLiveRoutingShortcut 
+                            && window.arrLiveRoutingShortcut.length > 0
+                            && window.arrLiveRoutingShortcut.indexOf(options.currentQuestion) >= 0) {
                             askia.triggerAnswer();
                         }
 					}
@@ -794,7 +804,10 @@
 						}
 						
 					}
-                    if (window.askia) {
+                    if (window.askia 
+                        && window.arrLiveRoutingShortcut 
+                        && window.arrLiveRoutingShortcut.length > 0
+                        && window.arrLiveRoutingShortcut.indexOf(options.currentQuestion) >= 0) {
                         askia.triggerAnswer();
                     }
 				}

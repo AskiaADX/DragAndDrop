@@ -1,0 +1,413 @@
+<table class="askiaadctable">
+<tbody>
+<tr>
+<td class="askiaadctdheader">Parameters</td>
+<td class="askiaadctdheader">Type</td>
+<td class="askiaadctdheader">Comments and/or possible value</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>General</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Stack Responses</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No. When turned on will stack all the responses in one pile</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Exclusive areas</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">blank or 1,2 or -1 -2. must be entered as the number of the dropzone, multiple areas must be separated by a comma. So if you want the second and third areas to only accept one response then you enter “2,3”. You can also use negative numbers which will count backwards, so to select the last two areas you would enter “-1, -2”</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Font Size</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">14px or 1.3em etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Control Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100% or 600px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Max Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100% or 600px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Control Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left, Center or Right</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Animation Speed</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Very Fast, Fast, Medium or Slow</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Alignment</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Text Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left, Center or Right</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Image Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left, Center or Right</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left, Center or Right</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Response Layout</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Text Position</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Top, Left, Bottom or Right</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Responses Styling</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">blank or 200px or 150pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Height</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">blank or 200px or 150pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Margin</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Padding</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Text Padding</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Image Padding</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Text Line Height</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">blank or 200px or 150pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Display Response Text</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Colour Primary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Colour Secondary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Font Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Border Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Border Radius</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Border Thickness</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or 1px or 2px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Border Style</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or Solid or Dashed or Dotted or Double</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Drop Shadow</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">On or Off.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Show Response Hover Colour</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Colour Primary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Colour Secondary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Show Response Hover Font Colour</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Font Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Show Response Hover Border</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Border Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Border Thickness</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or 1px or 2px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Border Style</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or Solid or Dashed or Dotted or Double</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Response Hover Drop Shadow</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">On or Off.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Colour Primary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Colour Secondary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Font Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Border Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Border Thickness</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or 1px or 2px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Border Style</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or Solid or Dashed or Dotted or Double</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Selected Response Drop Shadow</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">On or Off.</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Drop Area</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Position</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Right or Left or Top or Bottom. Will determine where the drop areas will appear, remember that you need to set the drop area and start area widths to 100% or something similar when it is above or below</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Container Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100% or 900px or 600pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">200px or 150pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Height</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100px or 70pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left or Right or Center.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Font Size</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">14px or 1.3em etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Font Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Text Alignment</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Left or Right or Center.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Colour Primary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Colour Secondary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Border Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Border Thickness</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or 1px or 2px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Border Style</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or Solid or Dashed or Dotted or Double</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Border Radius</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Drop Shadow</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">On or Off.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Padding</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Margin</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Drop Area Text Padding</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">10px or 10px 10px or 10px 0px 10px 0px etc...</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Images</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Force image to fit</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Yes or No. When turned on and the responses have a fixed height or width then it will resize the image to fit into these dimensions and adjust to make room for the text or available space</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Max Image Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100px or 80pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Max Image Height</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">100px or 80pt etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Force image size</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">No or Force width or Force height or Force both</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Start Area</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Width</td>
+<td class="askiaadctd">String</td>
+<td class="askiaadctd">50% or 400px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Colour Primary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Colour Secondary</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Border Colour</td>
+<td class="askiaadctd">Colour</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Border Thickness</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or 1px or 2px etc.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Border Style</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">None or Solid or Dashed or Dotted or Double</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Border Radius</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">&nbsp;</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Start Area Drop Shadow</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">On or Off.</td>
+</tr>
+<tr>
+<td class="askiaadccategory" colspan="3"><strong>Fallback</strong></td>
+</tr>
+<tr>
+<td class="askiaadctdname">Orientation</td>
+<td class="askiaadctd">Combo box</td>
+<td class="askiaadctd">Vertical or Horizontal.</td>
+</tr>
+<tr>
+<td class="askiaadctdname">Image Width</td>
+<td class="askiaadctd">Number</td>
+<td class="askiaadctd">100 or 200 etc.</td>
+</tr>
+</tbody>
+</table>

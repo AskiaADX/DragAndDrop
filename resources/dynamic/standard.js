@@ -1,4 +1,4 @@
-﻿/* standard.js */
+/* standard.js */
 $(window).load(function() {
 	$('#adc_{%= CurrentADC.InstanceId %}').adcDragndrop({
 		maxWidth : '{%= CurrentADC.PropValue("maxWidth") %}',
@@ -18,6 +18,7 @@ $(window).load(function() {
 		autoStackWidth: '{%= CurrentADC.PropValue("autoStackWidth") %}',
 		dropAreaPosition: '{%= CurrentADC.PropValue("dropAreaPosition") %}',
 		fontSize: '{%= CurrentADC.PropValue("fontSize") %}',
+        currentQuestion: '{%:= CurrentQuestion.Shortcut %}',
 		iterations: [
 			{% IF CurrentQuestion.Type = "single" Then %}
 				{%:= CurrentADC.GetContent("dynamic/standard_single.js").ToText()%}
