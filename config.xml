@@ -403,11 +403,11 @@
       </property>
       <property xsi:type="standardProperty" id="dropAreaColourPrimary" name="Drop Area Background Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
         <description><![CDATA[Background colour of the drop area]]></description>
-        <value><![CDATA[{%= Theme.PrimaryColor %}]]></value>
+        <value><![CDATA[{%= Theme.SecondaryColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="dropAreaBorderColour" name="Drop Area Border Colour" type="color" mode="dynamic" require="false" visible="false" colorFormat="rgb">
         <description><![CDATA[Border colour for selected responses]]></description>
-        <value><![CDATA[{%= Theme.PrimaryDarkColor %}]]></value>
+        <value><![CDATA[{%= Theme.SecondaryDarkColor %}]]></value>
       </property>
       <property xsi:type="standardProperty" id="dropAreaBorderThickness" name="Drop Area Border Thickness" type="string" mode="dynamic" require="false" visible="false">
         <description><![CDATA[The thickness of the border around the selected responses]]></description>
