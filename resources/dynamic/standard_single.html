@@ -7,7 +7,7 @@ Dim image
 Dim attrChecked
 Dim dropAreaPosition = CurrentADC.PropValue("dropAreaPosition")
 
-Dim ar = CurrentQuestion.ParentLoop.AvailableResponses
+Dim ar = CurrentQuestion.ParentLoop.Answers
 Dim j
 For j = 1 To ar.Count 
     inputName = CurrentQuestion.Iteration(ar[j].Index).InputName()

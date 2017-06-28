@@ -1,4 +1,4 @@
-﻿<div id="adc_{%= CurrentQuestion.Id %}" class="adc-default">
+<div id="adc_{%= CurrentQuestion.Id %}" class="adc-default">
 {% If CurrentQuestion.Type = "single" And CurrentADC.PropValue("orientation") = "horizontal" Then %}
     {%:= CurrentADC.GetContent("dynamic/fallback_single_horizontal.html").ToText() %}
 {% ElseIf CurrentQuestion.Type = "single" And CurrentADC.PropValue("orientation") = "vertical" Then %}
