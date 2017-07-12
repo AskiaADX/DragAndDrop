@@ -96,6 +96,14 @@
         <description><![CDATA[Whether to automatically select the next response]]></description>
         <value><![CDATA[0]]></value>
       </property>
+      <property xsi:type="standardProperty" id="fixedRankingOrder" name="Fixed ranking order" type="string" mode="dynamic" require="true" visible="true">
+        <description><![CDATA[Make all responses exclusive and the order of responses should start from top to bottom]]></description>
+        <value><![CDATA[no]]></value>
+        <options>
+          <option value="yes" text="Yes" />
+          <option value="no" text="No" />
+        </options>
+      </property>
       <property xsi:type="standardProperty" id="exclusiveAreas" name="Exclusive Areas" type="string" mode="static">
         <description><![CDATA[
           

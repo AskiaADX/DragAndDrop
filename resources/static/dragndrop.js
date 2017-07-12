@@ -43,6 +43,8 @@
 		(options.imageAlign = options.imageAlign || 'left');
 		(options.scaleOnTarget = options.scaleOnTarget || 0.5);
         (options.currentQuestion = options.currentQuestion || '');
+        (options.responsesValues = options.responsesValues || []);
+        (options.fixedRankingOrder = options.fixedRankingOrder || 'no');
 				
 		// Delegate .transition() calls to .animate() if the browser can't do CSS transitions.
 		if (!$.support.transition) $.fn.transition = $.fn.animate;
@@ -457,9 +459,10 @@
 							 ( parseInt(exclusiveArray[i]) < 0 && (parseInt(exclusiveArray[i]) + numberOfDropZones) === containerID) ) areaExclusive = true;
 					}
 				}
-												
+                
+				var checkrank = checkRanking(parseInt(String($(this).attr('data-value'))));
 				// check if it already contains an item
-				if ( areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0 ) {
+				if  ( ( ($(".responseItem[data-value='" + containerID + "']").size() > 0) || (checkrank) || ($('#' + iterations[$(ui.draggable).data('index')].id).val() >= 1) ) && areaExclusive ) {
 				
 					// Fail - revert to original position and reset value	
 					$(ui.draggable).data({'ontarget':false}).attr({'data-value':''});
@@ -646,6 +649,28 @@
 			$(this).css('z-index',initZindex);
 			
 		});
+        
+        function getValues() {
+            var myCurrentValues = [];
+            for (var i = 0, j = iterations.length ; i < j; i++) {
+                if ($('#' + iterations[i].id).val() !== '') {
+                    myCurrentValues.push(parseInt($('#' + iterations[i].id).val()));
+                }    
+            }
+            return myCurrentValues
+        }
+        
+        function checkRanking(testValue) {
+            if (options.responsesValues.indexOf(testValue) <= 0 || options.fixedRankingOrder === 'no') return false;
+            var index = options.responsesValues.indexOf(testValue);
+            var currentValues = getValues();
+            for (var i = 0, j = index; i < j; i++) {
+                if (currentValues.indexOf(options.responsesValues[i]) === -1) {
+                    return true;
+                }
+            }
+            return false;
+        }
 		
 		function offTarget(target) {
 			if ($(target).attr('data-value') == '' ) {
@@ -750,9 +775,9 @@
 					
 					if ( $(clickActive).size() > 0 ) $('#' + iterations[$(clickActive).data('index')].id).attr('value',target.attr('data-value')).val( target.attr('data-value') );
 
-										
+					var checkrank = checkRanking(parseInt(String(target.attr('data-value'))));
 					// check if it already contains an item
-					if ( !(areaExclusive && $(".responseItem[data-value='" + containerID + "']").size() > 0) ) {
+					if ( !( ( ($(".responseItem[data-value='" + containerID + "']").size() > 0) || (checkrank) || ($('#' + iterations[$(clickActive).data('index')].id).val() >= 1) ) && areaExclusive )) {
 												
 						if ( $(clickActive).data('ontarget') ) { // if already on target
 													

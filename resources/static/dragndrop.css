@@ -2,7 +2,12 @@
 /* CSS Document */
 
 .adc-dragndrop { position:relative; }
-
+.adc-dragndrop * {
+    user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
 
 .adc-dragndrop .responseItem { 
 	float:left; display:block; 
