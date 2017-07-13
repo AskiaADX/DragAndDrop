@@ -465,7 +465,7 @@
 				if  ( ( ($(".responseItem[data-value='" + containerID + "']").size() > 0) || (checkrank) || ($('#' + iterations[$(ui.draggable).data('index')].id).val() >= 1) ) && areaExclusive ) {
 				
 					// Fail - revert to original position and reset value	
-					$(ui.draggable).data({'ontarget':false}).attr({'data-value':''});
+					$(ui.draggable).data({'ontarget':false}).attr({'data-value':''}).css('margin','5px');
 					$(ui.draggable).transition({ scale: 1, top:$(ui.draggable).data('top'), left:$(ui.draggable).data('left') }, options.animationSpeed);
 					$('#' + iterations[$(ui.draggable).data('index')].id).val('');
 				
@@ -611,7 +611,7 @@
 					}
 				}).bind('mouseup', function (event) {
 					noDrag(event.target);	
-				}).css('margin','0');
+				}); //.css('margin','0');
 								
 				// IF IE7/8
 				if (!Modernizr.csstransforms) {
