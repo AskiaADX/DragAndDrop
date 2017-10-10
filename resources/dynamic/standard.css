@@ -225,6 +225,9 @@ EndIF
 	{% EndIF %}	
 	background-color: rgb({%= responseSelectedColourPrimary%});
 }
+#adc_{%= CurrentADC.InstanceId%} .responseActive .response_text {
+    color: rgb({%= responseSelectedFontColour %});
+}
 
 #adc_{%= CurrentADC.InstanceId%} .dropContainer { 
 	display:block; 
