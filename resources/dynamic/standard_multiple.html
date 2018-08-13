@@ -25,7 +25,7 @@ For i = 1 To CurrentQuestion.AvailableResponses.Count
 %}
 <div class="responseItem{%:= isExclusive %}" data-value="{%= inputValue %}" data-id="{%= i-1 %}" unselectable='on' onselectstart='return false;' onmousedown='return false;'>
 	{% IF image <> "" Then %}
-		<img src="{%= image %}" />
+		<img src="{%= image %}" alt="{%:= caption %}" />
     {% EndIF %}
 	<span class="response_text">{%:= caption %}</span>
 	<div style="clear:both"></div>

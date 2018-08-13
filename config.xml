@@ -30,7 +30,8 @@
 				- fixed alignment of responses in drop areas
 		v1.0.11 - fixed IE8 bug
 		v1.0.12 - fixed click to drop value not storing bug
-		NB fix selectability]]></description>
+		NB fix selectability
+		v2.0.3 - Add alt attribute to img]]></description>
     <company>Askia</company>
     <author><![CDATA[Paul Ferreira <paulf@askia.com>]]></author>
     <site>http://www.askia.com</site>

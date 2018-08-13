@@ -31,7 +31,7 @@ For i = 1 To car.Count
 <tr>
 	<td align="center">
     	{% IF (resource <> "") Then %}
-			<img src="{%= resource %}" width="{%= imageWidth %}" />
+			<img src="{%= resource %}" width="{%= imageWidth %}" alt="{%:= rcaption %}"/>
 		{% EndIf %}
     	<p>{%:= rcaption %}</p>
 	</td>

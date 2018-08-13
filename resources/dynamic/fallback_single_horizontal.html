@@ -18,7 +18,7 @@ For i = 1 To ar.Count
 %}
 <td align="center">
 	{% IF (resource <> "") Then %}
-		<img src="{%= resource %}" width="{%= imageWidth %}" />
+		<img src="{%= resource %}" width="{%= imageWidth %}" alt="{%:= caption %}" />
 	{% EndIf %}
 	<p>{%:= caption %}</p>
 </td>
