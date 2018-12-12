@@ -7,7 +7,7 @@
   <info>
     <name>DragAndDrop</name>
     <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
-    <version>2.0.2</version>
+    <version>3.0.0</version>
     <date>2014-05-27</date>
     <description><![CDATA[v1.0.3 - click to select item bug fixed
 			   - exclusive areas now work with clicking
@@ -31,7 +31,8 @@
 		v1.0.11 - fixed IE8 bug
 		v1.0.12 - fixed click to drop value not storing bug
 		NB fix selectability
-		v2.0.3 - Add alt attribute to img]]></description>
+		v2.0.3 - Add alt attribute to img
+		v3.0.0 - AvailableQuota]]></description>
     <company>Askia</company>
     <author><![CDATA[Paul Ferreira <paulf@askia.com>]]></author>
     <site>http://www.askia.com</site>
@@ -40,7 +41,7 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" single="true" requireParentLoop="true" chapter="false" date="false" multiple="false" numeric="false" open="false" />
+      <constraint on="questions" single="true" requireParentLoop="true" chapter="false" date="false" multiple="false" numeric="false" open="false" RequireLoopDepth="true" />
       <constraint on="controls" responseblock="true" checkbox="false" label="false" listbox="false" radiobutton="false" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>

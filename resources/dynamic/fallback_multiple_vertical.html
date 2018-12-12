@@ -25,7 +25,7 @@ For i = 1 To car.Count
 	{% Next %}
 </tr>
 {%
-Dim ar = CurrentQuestion.ParentLoop.Answers
+Dim ar = CurrentQuestion.ParentLoop.AvailableAnswers
 For i = 1 To ar.Count 
 	caption  = ar[i].Caption
 %}

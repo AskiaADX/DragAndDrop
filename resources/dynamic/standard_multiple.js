@@ -4,7 +4,7 @@ Dim isExclusive
 Dim i 
 Dim j
 
-Dim par = CurrentQuestion.ParentLoop.Answers
+Dim par = CurrentQuestion.ParentLoop.AvailableAnswers
 
 For i = 1 To par.Count 
   Dim ar  = CurrentQuestion.Iteration(par[i].Index).AvailableResponses
