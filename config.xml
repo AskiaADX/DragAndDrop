@@ -7,7 +7,7 @@
   <info>
     <name>DragAndDrop</name>
     <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
-    <version>3.0.1</version>
+    <version>3.0.2</version>
     <date>2014-05-27</date>
     <description><![CDATA[v1.0.3 - click to select item bug fixed
 			   - exclusive areas now work with clicking
@@ -41,13 +41,13 @@
       <category>General</category>
     </categories>
     <constraints>
-      <constraint on="questions" single="true" requireParentLoop="true" chapter="false" date="false" multiple="false" numeric="false" open="false" requireLoopDepth="true" />
+      <constraint on="questions" single="true" requireParentLoop="true" chapter="false" date="false" multiple="false" numeric="false" open="false" requireLoopDepth="1" />
       <constraint on="controls" responseblock="true" checkbox="true" label="false" listbox="false" radiobutton="true" textbox="false" />
       <constraint on="responses" max="*" min="*" />
     </constraints>
   </info>
   <outputs defaultOutput="fallback">
-    <output id="standard">
+    <output id="standard" manageLoopDepth="1">
       <description><![CDATA[Output when the browser support Javascript]]></description>
       <condition><![CDATA[Browser.Support("javascript")]]></condition>
       <content fileName="dragndrop.css" type="css" mode="static" position="head" />
@@ -73,7 +73,7 @@
       <content fileName="standard_single.js" type="javascript" mode="dynamic" position="none" />
       <content fileName="delete32.png" type="image" mode="static" position="none" />
     </output>
-    <output id="fallback">
+    <output id="fallback" manageLoopDepth="1">
       <description><![CDATA[Fallback when the browser doesn&acute;t support Javascript]]></description>
       <condition><![CDATA[Not(Browser.Support("javascript"))]]></condition>
       <content fileName="default.css" type="css" mode="static" position="head" />
