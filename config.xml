@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<control  xmlns="http://www.askia.com/2.1.0/ADCSchema"
+<control  xmlns="http://www.askia.com/2.2.0/ADCSchema"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.askia.com/2.1.0/ADCSchema https://raw.githubusercontent.com/AskiaADX/ADXSchema/2.1.0/ADCSchema.xsd"
-          version="2.1.0"
-          askiaCompat="5.4.2">
+          xsi:schemaLocation="http://www.askia.com/2.2.0/ADCSchema https://raw.githubusercontent.com/AskiaADX/ADXSchema/2.2.0/ADCSchema.xsd"
+          version="2.2.0"
+          askiaCompat="5.5.2">
   <info>
     <name>DragAndDrop</name>
     <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
@@ -74,7 +74,7 @@
       <content fileName="delete32.png" type="image" mode="static" position="none" />
     </output>
     <output id="fallback" manageLoopDepth="1">
-      <description><![CDATA[Fallback when the browser doesn&acute;t support Javascript]]></description>
+      <description><![CDATA[Fallback when the browser doesnacute;t support Javascript]]></description>
       <condition><![CDATA[Not(Browser.Support("javascript"))]]></condition>
       <content fileName="default.css" type="css" mode="static" position="head" />
       <content fileName="fallback_single_horizontal.html" type="html" mode="dynamic" position="none" />
