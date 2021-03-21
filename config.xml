@@ -6,8 +6,8 @@
           askiaCompat="5.5.2">
   <info>
     <name>DragAndDrop</name>
-    <guid>995b8259-2cec-4368-b733-d7ea6eec68a9</guid>
-    <version>3.0.2</version>
+    <guid>7938a704-788c-4585-b53b-675cc92e51b7</guid>
+    <version>3.0.3</version>
     <date>2014-05-27</date>
     <description><![CDATA[v1.0.3 - click to select item bug fixed
 			   - exclusive areas now work with clicking
@@ -32,7 +32,8 @@
 		v1.0.12 - fixed click to drop value not storing bug
 		NB fix selectability
 		v2.0.3 - Add alt attribute to img
-		v3.0.0 - AvailableQuota]]></description>
+		v3.0.0 - AvailableQuota
+		v3.0.3 - Changed GUID cause duplicate with StatementList]]></description>
     <company>Askia</company>
     <author><![CDATA[Paul Ferreira <paulf@askia.com>]]></author>
     <site>http://www.askia.com</site>
