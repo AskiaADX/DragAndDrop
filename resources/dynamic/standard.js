@@ -1,15 +1,15 @@
-{% Dim i = 1 
+{% Dim i = 1
 Dim j = 1
 Dim rankedResponses = ""
-For j = 1 to CurrentQuestion.AvailableResponses.Count 
-    If (j > 1) Then 
+For j = 1 to CurrentQuestion.AvailableResponses.Count
+    If (j > 1) Then
         rankedResponses = rankedResponses + ","
-    EndIf 
+    EndIf
     rankedResponses = rankedResponses + CurrentQuestion.AvailableResponses[j].Index
-Next j 
+Next j
 %}
 /* standard.js */
-$(window).load(function() {
+$(window).on("load",function() {
 	$('#adc_{%= CurrentADC.InstanceId %}').adcDragndrop({
 		maxWidth : '{%= CurrentADC.PropValue("maxWidth") %}',
 		controlWidth : '{%= CurrentADC.PropValue("controlWidth") %}',
@@ -30,7 +30,7 @@ $(window).load(function() {
 		dropAreaPosition: '{%= CurrentADC.PropValue("dropAreaPosition") %}',
 		fontSize: '{%= CurrentADC.PropValue("fontSize") %}',
         currentQuestion: '{%:= CurrentQuestion.Shortcut %}',
-        responsesValues: [{% For i = 1 to CurrentQuestion.AvailableResponses.Count 
+        responsesValues: [{% For i = 1 to CurrentQuestion.AvailableResponses.Count
     	If (i > 1) Then %},{% EndIf %}{%:= CurrentQuestion.AvailableResponses[i].InputValue() %}
       	{% Next i %}],
 		iterations: [
