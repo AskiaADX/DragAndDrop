@@ -34,3 +34,4 @@ gruntfile.js
 
 *.tmp/
 *.ps1
+.adxstudio/workspace.json
