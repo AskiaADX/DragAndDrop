@@ -38,4 +38,5 @@ v3.0.3
 v3.1.0 
 - jQuery, jQuery-ui, es5-shim, jQuery-transit updated and moved static directory,
 - share directory removed.
-    
+v3.1.1
+- fixed improper image preload interfering with control visibility
